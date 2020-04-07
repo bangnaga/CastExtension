@@ -85,11 +85,6 @@ public final class CastExtension extends AndroidNonvisibleComponent implements C
         return "Hola, Que, Tal";
     }
 
-    @SimpleFunction(description = "Return a list of Chromecast Devices")
-    public String StartDiscovery() {
-        ChromeCasts . startDiscovery ();
-        return ChromeCasts.get().get(0);
-    }
 
     @SimpleFunction(description = "Return a list of Chromecast Devices")
     public String DeviceList2() {
@@ -102,7 +97,12 @@ public final class CastExtension extends AndroidNonvisibleComponent implements C
        
         
           //MyCodeHere
-        }                         
+        }                    
+
+@SimpleFunction(description = "Return a list of Chromecast Devices")
+    public YailList ListaDispositivos() {
+        return ChromeCasts.get();
+    }
         
 
       }
