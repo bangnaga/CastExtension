@@ -15,7 +15,7 @@ jobs:
       - name: 'Checkout submodules'
         uses: textbook/git-checkout-submodule-action@master
       - name: 'Install 32-bit dependencies'
-        run: sudo apt-get install -y libc6-i386 lib32z1 lib32stdc++6
+        run: sudo apt-get install -y libc6-i386 lib32z1 lib32stdc++6  --fix-missing
       - name: 'Construir extension'
         run: ant extensions -Dproguard=1
       - name: 'Upload Companion to Artifacts'
