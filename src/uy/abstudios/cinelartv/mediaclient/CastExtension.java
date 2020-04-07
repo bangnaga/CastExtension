@@ -37,7 +37,7 @@ import com.google.appinventor.components.runtime.util.ElementsUtil;
 import com.google.appinventor.components.runtime.util.YailList;
 
 
-@UsesLibraries(libraries = "Chromecast.jar")
+
 
 
 @DesignerComponent(version = 1,
@@ -51,6 +51,7 @@ import com.google.appinventor.components.runtime.util.YailList;
 
 
 //@UsesLibraries(libraries = "kawa-1.11-modified.jar")
+@UsesLibraries(libraries = "Chromecast.jar")
 @SimpleObject(external = true)
 public final class CastExtension extends AndroidNonvisibleComponent implements Component {
 
