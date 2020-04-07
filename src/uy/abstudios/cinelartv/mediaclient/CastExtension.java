@@ -82,18 +82,21 @@ public final class CastExtension extends AndroidNonvisibleComponent implements C
         return "Soy, Una, Taza";
     }
 
-      }
-
-
-
-
-
-      @SimpleFunction(description = "Set Volume (0-100)")
-    public enum SetVolume(String volume) {
+     @SimpleFunction(description = "Set Volume (0-100)")
+    public enum SetVolume(String deviceID, String volume) {
   
        
         
           //MyCodeHere
         }                         
         
+
+      }
+
+
+
+
+
+    
+
    
