@@ -69,6 +69,6 @@ public final class CastExtension extends AndroidNonvisibleComponent implements C
  }
 
  @SimpleFunction(description = "Returns last used ID.")
-    public String LastUsedID {
+    public String LastUsedID; {
         return "LAST_ID";
     }
