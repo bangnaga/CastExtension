@@ -37,12 +37,18 @@ import com.google.appinventor.components.runtime.util.ElementsUtil;
 import com.google.appinventor.components.runtime.util.YailList;
 
 
+@UsesLibraries(libraries = "Chromecast.jar")
+
 
 @DesignerComponent(version = 1,
  category = ComponentCategory.EXTENSION,
  description = "Chromecast Extension for CinelarTV App",
  nonVisible = true,
- iconName = "https://cdn.worldvectorlogo.com/logos/cast-icon-chromecast.svg")
+ iconName = "https://cdn.worldvectorlogo.com/logos/cast-icon-chromecast.svg"),
+ helpUrl = "https://developers.cinelartv.tk/opensource/cast.html")
+
+
+
 //@UsesLibraries(libraries = "kawa-1.11-modified.jar")
 @SimpleObject(external = true)
 public final class CastExtension extends AndroidNonvisibleComponent implements Component {
