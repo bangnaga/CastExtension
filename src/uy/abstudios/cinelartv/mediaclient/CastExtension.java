@@ -77,7 +77,7 @@ import java.io.ByteArrayOutputStream;
  iconName = "https://firebasestorage.googleapis.com/v0/b/extensions-3caad.appspot.com/o/Dialog.png?alt=media&token=caf8ec0d-a1bd-4615-90f1-3521a30c9be1")
 //@UsesLibraries(libraries = "kawa-1.11-modified.jar")
 @SimpleObject(external = true)
-public final class Dialogs extends AndroidNonvisibleComponent implements Component {
+public final class CastExtension extends AndroidNonvisibleComponent implements Component {
 
  //NMD UPDATE >>>
  private ComponentContainer container;
@@ -94,7 +94,7 @@ public final class Dialogs extends AndroidNonvisibleComponent implements Compone
 
 
 
- public Dialogs(ComponentContainer container) {
+ public CastExtension(ComponentContainer container) {
   super(container.$form());
   //NMD UPDATE >>>
   this.container = container;
