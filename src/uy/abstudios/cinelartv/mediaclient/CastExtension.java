@@ -8,7 +8,7 @@ package uy.abstudios.cinelartv.mediaclient;
 
 import com.google.appinventor.components.annotations.*;
 import com.google.appinventor.components.runtime.*;
-
+import su.litvak.chromecast.api.v2.*;
 import android.app.Activity;
 import android.content.Context;
 import android.graphics.*;
@@ -66,8 +66,8 @@ public final class CastExtension extends AndroidNonvisibleComponent implements C
 
  }
 
- @SimpleFunction(description = "Returns last used ID.")
-    public String LastUsedID() {
+ @SimpleFunction(description = "Return a list of Chromecast Devices")
+    public String DeviceList() {
         return "LAST_ID";
     }
 
