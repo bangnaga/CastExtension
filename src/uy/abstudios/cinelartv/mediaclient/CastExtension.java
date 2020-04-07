@@ -10,7 +10,6 @@ package uy.abstudios.cinelartv.mediaclient;
 
 import com.google.appinventor.components.annotations.*;
 import com.google.appinventor.components.runtime.*;
-import su.litvak.chromecast.api.v2.ChromeCast;
 import android.app.Activity;
 import android.content.Context;
 import android.graphics.*;
@@ -55,9 +54,6 @@ public final class CastExtension extends AndroidNonvisibleComponent implements C
  private final Handler handler;
  final ArrayList seletedItems = null;
 
- @SimpleObject
-@UsesPermissions(permissionNames = "android.permission.INTERNET")
-@UsesLibraries(libraries = "ChromeCast.java")
 
 
 
