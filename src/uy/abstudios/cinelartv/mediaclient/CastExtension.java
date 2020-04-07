@@ -44,7 +44,7 @@ import com.google.appinventor.components.runtime.util.YailList;
  category = ComponentCategory.EXTENSION,
  description = "Chromecast Extension for CinelarTV App",
  nonVisible = true,
- iconName = "https://cdn.worldvectorlogo.com/logos/cast-icon-chromecast.svg")
+ iconName = "https://cdn.worldvectorlogo.com/logos/cast-icon-chromecast.svg",
  helpUrl = "https://developers.cinelartv.tk/opensource/cast.html")
 
 
