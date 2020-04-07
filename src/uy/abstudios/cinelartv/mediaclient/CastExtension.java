@@ -77,5 +77,15 @@ public final class CastExtension extends AndroidNonvisibleComponent implements C
         return "Hola, Que, Tal";
     }
 
+    @SimpleFunction(description = "Return a list of Chromecast Devices")
+    public String DeviceList2() {
+        return "Soy, Una, Taza";
+    }
+
       }
 
+
+
+
+
+      
