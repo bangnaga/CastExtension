@@ -90,7 +90,7 @@ public final class CastExtension extends AndroidNonvisibleComponent implements C
     }
 
      @SimpleFunction(description = "Set Volume (0-100)")
-    public void SetVolume(String deviceID, Int volume) {
+    public void SetVolume(String deviceID, int volume) {
   
        
         
