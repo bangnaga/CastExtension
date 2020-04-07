@@ -63,8 +63,6 @@ public final class CastExtension extends AndroidNonvisibleComponent implements C
   //NMD UPDATE <<<<
   activity = container.$context();
   handler = new Handler();
-  progress = null;
-  progressl = null;
 
  }
 
