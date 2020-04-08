@@ -52,7 +52,7 @@ import su.litvak.chromecast.api.v2.*;
 
 
 //@UsesLibraries(libraries = "kawa-1.11-modified.jar")
-@UsesLibraries(libraries = "api-v2-0.10.3-SNAPSHOT.jar")
+@UsesLibraries(libraries = "api-v2-0.9.3-SNAPSHOT.jar")
 @SimpleObject(external = true)
 public final class CastExtension extends AndroidNonvisibleComponent implements Component {
 
@@ -87,8 +87,9 @@ public final class CastExtension extends AndroidNonvisibleComponent implements C
 
 
     @SimpleFunction(description = "Return a list of Chromecast Devices")
-    public void getContentTitle() {
-        return ChromeCast.getTitle();
+    public YailList GetDevices() {
+      ChromeCasts.startDiscovery();
+        return YailList.makelist(ChromeCasts.get());
     }
 
      @SimpleFunction(description = "Set Volume (0-100)")
