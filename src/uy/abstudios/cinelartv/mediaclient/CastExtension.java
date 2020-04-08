@@ -52,7 +52,7 @@ import su.litvak.chromecast.api.v2.ChromeCasts;
 
 
 //@UsesLibraries(libraries = "kawa-1.11-modified.jar")
-@UsesLibraries(libraries = "chromecast.jar")
+@UsesLibraries(libraries = "api-v2-0.10.3-SNAPSHOT.jar")
 @SimpleObject(external = true)
 public final class CastExtension extends AndroidNonvisibleComponent implements Component {
 
