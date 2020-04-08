@@ -39,7 +39,7 @@ import javax.jmdns.*;
 
 
 
-
+@UsesLibraries(libraries = "api-v2-0.9.3-SNAPSHOT.jar" + "jmdns-3.5.1.jar")
 
 @DesignerComponent(version = 1,
  category = ComponentCategory.EXTENSION,
@@ -51,8 +51,6 @@ import javax.jmdns.*;
 
 
 
-//@UsesLibraries(libraries = "kawa-1.11-modified.jar")
-@UsesLibraries(libraries = "api-v2-0.9.3-SNAPSHOT.jar" + "jmdns-3.5.1.jar")
 @SimpleObject(external = true)
 public final class CastExtension extends AndroidNonvisibleComponent implements Component {
 
