@@ -34,12 +34,12 @@ import com.google.appinventor.components.common.YaVersion;
 import com.google.appinventor.components.runtime.util.SdkLevel;
 import com.google.appinventor.components.runtime.util.ElementsUtil;
 import com.google.appinventor.components.runtime.util.YailList;
-import Lsu.litvak.chromecast.api.v2.*;
+import su.litvak.chromecast.api.v2.*;
 import javax.jmdns.*;
 
 
 
-@UsesLibraries(libraries = "api-v2-0.9.3-SNAPSHOT.jar" + "jmdns-3.5.1.jar")
+
 
 @DesignerComponent(version = 1,
  category = ComponentCategory.EXTENSION,
@@ -81,7 +81,7 @@ public final class CastExtension extends AndroidNonvisibleComponent implements C
 
 
 
-
+@UsesLibraries(libraries = "api-v2-0.9.3-SNAPSHOT.jar" + "jmdns-3.5.1.jar")
 
 
     @SimpleFunction(description = "Return a list of Chromecast Devices")

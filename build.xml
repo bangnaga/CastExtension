@@ -29,7 +29,7 @@
            includeantruntime="false">
       <classpath>
         <pathelement location="lib/appinventor/AndroidRuntime.jar" />
-        <pathelement location="lib/Lsu/litvak/chromecast/api-v2-0.9.3-SNAPSHOT.jar" />
+        <pathelement location="lib/su/litvak/chromecast/api-v2-0.9.3-SNAPSHOT.jar" />
         <pathelement location="lib/org/jmdns/jmdns-3.5.1.jar" />
         <pathelement location="lib/appinventor/AnnotationProcessors.jar" />
         <pathelement location="lib/kawa/kawa-1.11-modified.jar" />
