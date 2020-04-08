@@ -35,7 +35,7 @@ import com.google.appinventor.components.runtime.util.SdkLevel;
 import com.google.appinventor.components.runtime.util.ElementsUtil;
 import com.google.appinventor.components.runtime.util.YailList;
 import su.litvak.chromecast.api.v2.*;
-
+import javax.jmdns.*
 
 
 
@@ -53,6 +53,7 @@ import su.litvak.chromecast.api.v2.*;
 
 //@UsesLibraries(libraries = "kawa-1.11-modified.jar")
 @UsesLibraries(libraries = "api-v2-0.9.3-SNAPSHOT.jar")
+@UsesLibraries(libraries = "jmdns-3.5.1.jar")
 @SimpleObject(external = true)
 public final class CastExtension extends AndroidNonvisibleComponent implements Component {
 
