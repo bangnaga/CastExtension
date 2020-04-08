@@ -86,10 +86,9 @@ public final class CastExtension extends AndroidNonvisibleComponent implements C
 
 
 
-
     @SimpleFunction(description = "Return a list of Chromecast Devices")
-    public final boolean IsConnected() {
-        return ChromeCast.isConnected() ;
+    public void getContentTitle() {
+        return ChromeCast,getTitle();
     }
 
      @SimpleFunction(description = "Set Volume (0-100)")
