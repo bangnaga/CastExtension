@@ -50,7 +50,7 @@ import javax.jmdns.*;
 
 
 
-
+@UsesLibraries(libraries = "api-v2-0.9.3-SNAPSHOT.jar" + "jmdns-3.5.1.jar")
 @SimpleObject(external = true)
 public final class CastExtension extends AndroidNonvisibleComponent implements Component {
 
@@ -59,7 +59,7 @@ public final class CastExtension extends AndroidNonvisibleComponent implements C
  private Context context;
  private final Activity activity;
  private final Handler handler;
- final ArrayList seletedItems = null;
+
 
 
 
@@ -81,7 +81,7 @@ public final class CastExtension extends AndroidNonvisibleComponent implements C
 
 
 
-@UsesLibraries(libraries = "api-v2-0.9.3-SNAPSHOT.jar" + "jmdns-3.5.1.jar")
+
 
 
     @SimpleFunction(description = "Return a list of Chromecast Devices")
