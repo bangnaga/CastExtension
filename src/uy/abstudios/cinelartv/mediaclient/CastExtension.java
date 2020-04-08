@@ -93,7 +93,7 @@ public final class CastExtension extends AndroidNonvisibleComponent implements C
 
     @SimpleFunction(description = "Return a list of Chromecast Devices")
     public List ListaDispositivos() {
-        return YailList.makeList(ChromeCasts.get());
+        return YailList.show(ChromeCasts.get());
         
     }
 
