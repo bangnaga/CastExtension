@@ -38,7 +38,7 @@ import su.litvak.chromecast.api.v2.*;
 import javax.jmdns.*;
 import org.slf4j.*;
 import com.google.protobuf.*;
-import com.fasterxml.jackson.*;
+import com.fasterxml.jackson.databind.*;
 
 
 
