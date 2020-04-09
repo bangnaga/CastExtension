@@ -30,7 +30,10 @@
       <classpath>
         <pathelement location="lib/appinventor/AndroidRuntime.jar" />
         <pathelement location="lib/deps/api-v2-0.11.4-SNAPSHOT-jar-with-dependencies.jar" />
+        <pathelement location="lib/deps/slf4j-api-1.7.30.jar" />
         <pathelement location="lib/appinventor/AnnotationProcessors.jar" />
+        <pathelement location="lib/deps/jmdns-3.5.5.jar" />
+
         <pathelement location="lib/kawa/kawa-1.11-modified.jar" />
         <fileset dir="lib/android">
           <include name="*.jar" />
