@@ -50,7 +50,7 @@ import javax.jmdns.*;
 
 
 
-@UsesLibraries(libraries = "api-v2-0.0.8-SNAPSHOT.jar" + "jmdns-3.5.1.jar")
+@UsesLibraries(libraries = "api-v2-0.11.4-SNAPSHOT-jar-with-dependencies.jar")
 @SimpleObject(external = true)
 public final class CastExtension extends AndroidNonvisibleComponent implements Component {
 
