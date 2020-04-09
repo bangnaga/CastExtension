@@ -34,6 +34,8 @@
         <pathelement location="lib/deps/protobuf-java-2.6.0.jar" />
         <pathelement location="lib/deps/jackson-databind-2.10.3.jar" />
         <pathelement location="lib/appinventor/AnnotationProcessors.jar" />
+        <pathelement location="lib/deps/jackson-annotations-2.10.3.jar" />
+        <pathelement location="lib/deps/jackson-core-2.10.3.jar" />
         <pathelement location="lib/deps/jmdns-3.5.5.jar" />
 
         <pathelement location="lib/kawa/kawa-1.11-modified.jar" />
