@@ -51,7 +51,7 @@ import org.slf4j.*;
 
 
 
-@UsesLibraries(libraries = "api-v2-0.11.4-SNAPSHOT-jar-with-dependencies.jar")
+@UsesLibraries(libraries = "api-v2-0.11.4-SNAPSHOT-jar-with-dependencies.jar" + "slf4j-api-1.7.30.jar" + "jmdns-3.5.5.jar")
 @SimpleObject(external = true)
 public final class CastExtension extends AndroidNonvisibleComponent implements Component {
 
