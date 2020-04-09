@@ -37,6 +37,7 @@ import com.google.appinventor.components.runtime.util.YailList;
 import su.litvak.chromecast.api.v2.*;
 import javax.jmdns.*;
 import org.slf4j.*;
+import com.google.protobuf.*;
 
 
 
@@ -51,7 +52,7 @@ import org.slf4j.*;
 
 
 
-@UsesLibraries(libraries = "api-v2-0.11.4-SNAPSHOT.jar,slf4j-api-1.7.30.jar,jmdns-3.5.5.jar")
+@UsesLibraries(libraries = "api-v2-0.11.4-SNAPSHOT.jar,slf4j-api-1.7.30.jar,jmdns-3.5.5.jar,protobuf-java-2.6.0.jar")
 @SimpleObject(external = true)
 public final class CastExtension extends AndroidNonvisibleComponent implements Component {
 
