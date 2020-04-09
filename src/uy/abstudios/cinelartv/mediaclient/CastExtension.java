@@ -39,6 +39,7 @@ import javax.jmdns.*;
 import org.slf4j.*;
 import com.google.protobuf.*;
 import com.fasterxml.jackson.databind.*;
+import com.fasterxml.jackson.core.*;
 
 
 
