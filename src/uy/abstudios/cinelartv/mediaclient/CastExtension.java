@@ -104,8 +104,8 @@ private static String APP_ID = "";
     @SimpleFunction(description = "Return a list of Chromecast Devices")
     public YailList getDeviceList() {
 
-        str1 = "-".join(ChromeCasts.get());
-        return str1;
+        
+        return "-".join(ChromeCasts.get());
     }
 
 
