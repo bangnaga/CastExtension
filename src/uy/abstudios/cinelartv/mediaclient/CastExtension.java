@@ -74,6 +74,13 @@ private static String APP_ID = "";
   super(container.$form());
  }
 
+
+ // ------------------------
+    //        PROPERTIES
+    // ------------------------
+
+
+
 @SimpleProperty(category = PropertyCategory.BEHAVIOR,
       description = "Return configured APP_ID in Designer")
     public String AppID() {
@@ -89,13 +96,16 @@ private static String APP_ID = "";
 
 
 
+// ------------------------
+    //        Functions
+    // ------------------------
 
 
     @SimpleFunction(description = "Return a list of Chromecast Devices")
     public YailList getDeviceList() {
 
 
-        return  StringUtils.join(ChromeCasts.get());
+        return  list.toArray(ChromeCasts.get());
     
     }
 
