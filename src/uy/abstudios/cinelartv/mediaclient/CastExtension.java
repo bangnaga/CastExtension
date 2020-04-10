@@ -60,10 +60,7 @@ import com.fasterxml.jackson.databind.*;
 public final class CastExtension extends AndroidNonvisibleComponent implements com.google.appinventor.components.runtime.Component {
 
 
- private ComponentContainer container;
- private Context context;
- private final Activity activity;
- private final Handler handler;
+private static String APP_ID = "";
 
 
 
@@ -75,13 +72,6 @@ public final class CastExtension extends AndroidNonvisibleComponent implements c
 
  public CastExtension(ComponentContainer container) {
   super(container.$form());
-  //NMD UPDATE >>>
-  this.container = container;
-  context = (Context) container.$context();
-  //NMD UPDATE <<<<
-  activity = container.$context();
-  handler = new Handler();
-
  }
 
 @SimpleProperty(category = PropertyCategory.BEHAVIOR,
