@@ -18,7 +18,8 @@ import android.util.Log;
 import android.view.View;
 import android.R.drawable;
 
-
+import javax.swing.*;
+import java.awt.*;
 import android.view.Window;
 import java.util.ArrayList;
 import com.google.appinventor.components.annotations.DesignerComponent;
