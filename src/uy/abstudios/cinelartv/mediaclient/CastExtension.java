@@ -95,15 +95,8 @@ public final class CastExtension extends AndroidNonvisibleComponent implements c
 
         return YailList.makeList(su.litvak.chromecast.api.v2.ChromeCasts.get());
     
+    }
 
-    try {
-  su.litvak.chromecast.api.v2.ChromeCasts.startDiscovery();
-}
-catch (Exception e) {
-  e.printStackTrace();
-}
-
-}
 
      @SimpleFunction(description = "Set Volume (0-100)")
     public void SetVolume(String deviceID, int volume) {
@@ -116,6 +109,27 @@ catch (Exception e) {
 
         
 
-      }
+      @Override
+          public void onGetDevices(int statusCode, Header[] headers, JSONObject response) {
+            if (response.optString("action","NOT-FOUND") == "ERROR") {
+              OnError(response.toString(), statusCode);
+            }
+            else 
+            {
+              OnSuccess(response.optString("action","NOT-FOUND"),response.toString());
+            }
+          }
 
       
+      
+
+@SimpleFunction(description = "Get all Chromecast devices")
+    public void GetDevices() {
+      try {
+  su.litvak.chromecast.api.v2.ChromeCasts.startDiscovery();
+}
+catch (Exception e) {
+  e.printStackTrace();
+}
+
+    }
