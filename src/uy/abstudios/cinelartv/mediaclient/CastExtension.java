@@ -44,7 +44,7 @@ import com.google.protobuf.*;
 import com.fasterxml.jackson.databind.*;
 import com.fasterxml.jackson.core.*;
 import com.fasterxml.jackson.annotation.*;
-import org.apache.log4j.*;
+
 
 
 
