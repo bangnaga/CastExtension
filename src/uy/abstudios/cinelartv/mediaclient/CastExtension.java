@@ -17,7 +17,7 @@ import android.os.Handler;
 import android.util.Log;
 import android.view.View;
 import android.R.drawable;
-
+import java.util.List;
 import java.awt.*;
 import java.awt.event.*;
 import android.view.Window;
@@ -95,7 +95,7 @@ private static String APP_ID = "";
     public YailList getDeviceList() {
 
 
-        return YailList.makeList(java.util.List ChromeCasts.get());
+        return ChromeCasts.get();
     
     }
 
