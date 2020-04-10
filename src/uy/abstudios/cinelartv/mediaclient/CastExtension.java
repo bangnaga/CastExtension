@@ -17,7 +17,6 @@ import android.os.Handler;
 import android.util.Log;
 import android.view.View;
 import android.R.drawable;
-
 import javax.swing.*;
 import java.awt.*;
 import android.view.Window;
@@ -62,7 +61,7 @@ import org.apache.log4j.*;
 
 @UsesLibraries(libraries = "api-v2-0.11.4-SNAPSHOT.jar,slf4j-api-1.7.30.jar,log4j-1.2.17.jar,log4j12-1.7.2.jar,jmdns-3.5.5.jar,protobuf-java-2.6.0.jar,jackson-databind-2.10.3.jar,jackson-core-2.10.3.jar,jackson-annotations-2.10.3.jar")
 @SimpleObject(external = true)
-public final class CastExtension extends AndroidNonvisibleComponent implements Component {
+public final class CastExtension extends AndroidNonvisibleComponent implements com.google.appinventor.components.runtime.Component {
 
 
  private ComponentContainer container;
