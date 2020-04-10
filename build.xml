@@ -32,6 +32,7 @@
         <pathelement location="lib/deps/api-v2-0.11.4-SNAPSHOT.jar" />
         <pathelement location="lib/deps/log4j12-1.7.2.jar" />
         <pathelement location="lib/deps/slf4j-api-1.7.30.jar" />
+        <pathelement location="lib/deps/jtransc-rt-0.5.0-ALPHA4.jar" />
         <pathelement location="lib/deps/protobuf-java-2.6.0.jar" />
         <pathelement location="lib/deps/jackson-databind-2.10.3.jar" />
         <pathelement location="lib/appinventor/AnnotationProcessors.jar" />
