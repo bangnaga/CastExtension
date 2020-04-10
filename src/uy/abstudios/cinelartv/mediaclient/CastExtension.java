@@ -57,6 +57,8 @@ import com.fasterxml.jackson.databind.*;
 
 @UsesLibraries(libraries = "api-v2-0.11.4-SNAPSHOT.jar,jackson-annotations-2.10.3.jar,jackson-core-2.10.3.jar,jackson-databind-2.10.3.jar,protobuf-java-2.6.0.jar,jmdns-3.5.5.jar,slf4j-api-1.7.30.jar")
 @SimpleObject(external = true)
+@UsesPermissions(permissionNames = "android.permission.INTERNET")
+
 public final class CastExtension extends AndroidNonvisibleComponent implements com.google.appinventor.components.runtime.Component {
 
 
