@@ -85,7 +85,18 @@ public final class CastExtension extends AndroidNonvisibleComponent implements c
  }
 
 
+ @DesignerProperty(editorType = PropertyTypeConstants.PROPERTY_TYPE_STRING, defaultValue = "")
+    @SimpleProperty
+    public void AppID(String applicationID) {
+      APPID = applicationID;
+    }
 
+
+@SimpleProperty(category = PropertyCategory.BEHAVIOR,
+      description = "Return configured APP_ID in Designer")
+    public String AppID() {
+      return APPID;
+    }
 
 
 
@@ -109,10 +120,6 @@ public final class CastExtension extends AndroidNonvisibleComponent implements c
 
         
 
-      @Override
-          public void onGetDevices(YailList devices) {
-            // MyCode Here
-          }
 
       
       
