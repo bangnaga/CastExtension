@@ -105,8 +105,7 @@ private static String APP_ID = "";
     public YailList getDeviceList() {
 
 
-        return  list.toArray(ChromeCasts.get());
-    
+        return  arraylist.toArray(ChromeCasts.get());
     }
 
 
