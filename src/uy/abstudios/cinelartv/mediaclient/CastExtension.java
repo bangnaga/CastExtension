@@ -36,20 +36,7 @@ import com.google.appinventor.components.runtime.util.SdkLevel;
 import com.google.appinventor.components.runtime.util.ElementsUtil;
 import com.google.appinventor.components.runtime.util.YailList;
 import su.litvak.chromecast.api.v2.*;
-import javax.jmdns.*;
-import javax.jmdns.impl.*;
-import org.slf4j.*;
-import org.slf4j.impl.*;
-import com.google.protobuf.*;
-import com.fasterxml.jackson.databind.*;
-import com.fasterxml.jackson.core.*;
-import com.fasterxml.jackson.annotation.*;
-import org.apache.log4j.*;
-import javax.management.*;
-import javax.swing.*;
-import javax.swing.table.*;
-import javax.swing.event.*;
-import javax.jms.*;
+
 
 
 
@@ -66,7 +53,7 @@ import javax.jms.*;
 
 
 
-@UsesLibraries(libraries = "api-v2-0.11.4-SNAPSHOT.jar,jtransc-rt-0.5.0-ALPHA4.jar,slf4j-api-1.7.30.jar,log4j-1.2.17.jar,log4j12-1.7.2.jar,jmdns-3.5.5.jar,protobuf-java-2.6.0.jar,jackson-databind-2.10.3.jar,jackson-core-2.10.3.jar,jackson-annotations-2.10.3.jar")
+@UsesLibraries(libraries = "api-v2-0.11.4-SNAPSHOT.jar,jackson-annotations-2.10.3.jar,jackson-core-2.10.3.jar,jackson-databind-2.10.3.jar,protobuf-java-2.6.0.jar,jmdns-3.5.5.jar,slf4j-api-1.7.30.jar")
 @SimpleObject(external = true)
 public final class CastExtension extends AndroidNonvisibleComponent implements com.google.appinventor.components.runtime.Component {
 
