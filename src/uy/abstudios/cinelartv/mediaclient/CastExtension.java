@@ -95,7 +95,7 @@ private static String APP_ID = "";
     public YailList getDeviceList() {
 
 
-        return YailList.makeList(su.litvak.chromecast.api.v2.ChromeCasts.get());
+        return ChromeCasts.get();
     
     }
 
@@ -118,7 +118,7 @@ private static String APP_ID = "";
 @SimpleFunction(description = "Get all Chromecast devices")
     public void GetDevices() {
       try {
-  su.litvak.chromecast.api.v2.ChromeCasts.startDiscovery();
+  ChromeCasts.startDiscovery();
 }
 catch (Exception e) {
   e.printStackTrace();
