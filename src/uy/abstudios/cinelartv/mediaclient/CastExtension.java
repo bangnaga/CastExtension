@@ -97,7 +97,7 @@ public final class CastExtension extends AndroidNonvisibleComponent implements C
       try {
   su.litvak.chromecast.api.v2.ChromeCasts.startDiscovery();
 }
-catch(IOException e) {
+catch (Exception e) {
   e.printStackTrace();
 }
 
