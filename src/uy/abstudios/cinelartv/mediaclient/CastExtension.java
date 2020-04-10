@@ -84,19 +84,20 @@ public final class CastExtension extends AndroidNonvisibleComponent implements c
 
  }
 
+@SimpleProperty(category = PropertyCategory.BEHAVIOR,
+      description = "Return configured APP_ID in Designer")
+    public String AppID() {
+      return APP_ID;
+    }
 
  @DesignerProperty(editorType = PropertyTypeConstants.PROPERTY_TYPE_STRING, defaultValue = "")
     @SimpleProperty
     public void AppID(String applicationID) {
-      APPID = applicationID;
+      APP_ID = applicationID;
     }
 
 
-@SimpleProperty(category = PropertyCategory.BEHAVIOR,
-      description = "Return configured APP_ID in Designer")
-    public String AppID() {
-      return APPID;
-    }
+
 
 
 
