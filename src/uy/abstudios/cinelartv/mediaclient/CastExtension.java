@@ -110,8 +110,8 @@ public final class CastExtension extends AndroidNonvisibleComponent implements c
         
 
       @Override
-          public void onGetDevices(int statusCode, Header[] headers, JSONObject response) {
-            if (response.optString("action","NOT-FOUND") == "ERROR") {
+          public void onGetDevices(YailList devices) {
+            if (devices.optString("action","NOT-FOUND") == "ERROR") {
               OnError(response.toString(), statusCode);
             }
             else 
