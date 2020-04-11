@@ -74,6 +74,7 @@ private static String APP_ID = "";
 
  public CastExtension(ComponentContainer container) {
   super(container.$form());
+  Extras(new YailList());
  }
 
 
