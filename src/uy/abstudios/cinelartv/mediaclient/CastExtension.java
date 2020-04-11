@@ -104,10 +104,10 @@ private static String APP_ID = "";
     // ------------------------
 
 
-    @SimpleFunction(description = "Return a list of Chromecast Devices")
-    public static YailList getDeviceList() {
-      List listChromecasts = YailList.makeList(ChromeCasts.get());
-       return listChromecasts;
+    @SimpleFunction(description = "Return a list of discovered Chromecast Devices")
+    public static YailList getDeviceList(List) {
+      LList listChromecasts = Pair.makeList(ChromeCasts.get());
+       return new YailList(listChromecasts);
     }
 
 
@@ -127,7 +127,7 @@ private static String APP_ID = "";
       
 
 @SimpleFunction(description = "Get all Chromecast devices")
-    public void GetDevices() {
+    public void startDiscovery() {
       try {
   ChromeCasts.startDiscovery();
 }
