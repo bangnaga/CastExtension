@@ -106,8 +106,8 @@ private static String APP_ID = "";
 
 @SimpleFunction(description = "Return a list of discovered Chromecast Devices")
 public String getDeviceList() {
-  List listChromecasts = Pair.makeList(ChromeCasts.get());
-  return YailList(listChromecasts).toString();
+  LList listChromecasts = Pair.makeList(ChromeCasts.get());
+  return com.google.appinventor.components.runtime.util.YailList(listChromecasts).toString();
 }
 
 
