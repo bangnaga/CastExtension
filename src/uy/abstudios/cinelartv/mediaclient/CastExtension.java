@@ -106,7 +106,8 @@ private YailList extras;
 @SimpleFunction(description = "Return a list of discovered Chromecast Devices")
 public YailList getDeviceList() {
   LList listChromecasts = Pair.makeList(ChromeCasts.get());
-  return new YailList(listChromecasts);
+  YailList chromecastDevices = new YailList(listChromecasts)
+  return YailList(listChromecasts);
 }
 
 //@SimpleFunction(description = "Return a list of discovered Chromecast Devices")
