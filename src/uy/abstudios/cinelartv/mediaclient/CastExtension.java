@@ -32,7 +32,7 @@ import com.google.appinventor.components.common.YaVersion;
 import com.google.appinventor.components.runtime.util.SdkLevel;
 import com.google.appinventor.components.runtime.util.ElementsUtil;
 import com.google.appinventor.components.runtime.util.YailList;
-import com.google.appinventor.components.runtime.util.*;
+import com.google.appinventor.components.runtime.util.YailList.*;
 import gnu.lists.Pair;
 import gnu.lists.LList;
 import java.util.List;
