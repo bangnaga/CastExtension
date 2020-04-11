@@ -32,7 +32,9 @@ import com.google.appinventor.components.common.YaVersion;
 import com.google.appinventor.components.runtime.util.SdkLevel;
 import com.google.appinventor.components.runtime.util.ElementsUtil;
 import com.google.appinventor.components.runtime.util.YailList;
-import com.google.appinventor.components.runtime.util.*;
+import gnu.lists.Pair,
+import gnu.lists.LList
+import java.util.List
 import su.litvak.chromecast.api.v2.*;
 import org.slf4j.*;
 import com.fasterxml.jackson.databind.*;
@@ -101,9 +103,9 @@ private static String APP_ID = "";
     // ------------------------
 
 
-    @SimpleFunction(description = "Return a list of discovered Chromecast Devices")
+@SimpleFunction(description = "Return a list of discovered Chromecast Devices")
 public String getDeviceList() {
-  List listChromecasts = Pair.makeList(ChromeCasts.get());
+  LList listChromecasts = Pair.makeList(ChromeCasts.get());
   return new YailList(listChromecasts).toString();
 }
 
