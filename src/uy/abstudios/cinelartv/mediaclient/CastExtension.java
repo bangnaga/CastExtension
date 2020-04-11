@@ -9,7 +9,7 @@ package uy.abstudios.cinelartv.mediaclient;
 
 
 import com.google.appinventor.components.annotations.*;
-import com.google.appinventor.components.runtime;
+import com.google.appinventor.components.runtime.*;
 import android.app.Activity;
 import android.content.Context;
 import android.os.Handler;
