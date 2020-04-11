@@ -74,7 +74,6 @@ private YailList extras;
 
  public CastExtension(ComponentContainer container) {
   super(container.$form());
-  Extras(new YailList());
  }
 
 
@@ -105,13 +104,18 @@ private YailList extras;
 
 
 @SimpleFunction(description = "Return a list of discovered Chromecast Devices")
-public String getDeviceList() {
+public YailList getDeviceList() {
   LList listChromecasts = Pair.makeList(ChromeCasts.get());
-  return new YailList(listChromecasts).toString();
+  return new YailList(listChromecasts);
 }
 
+//@SimpleFunction(description = "Return a list of discovered Chromecast Devices")
+//public String getDeviceList() {
+  //ArrayList<ChromeCast> casts = ChromeCasts.get();
+//}
 
-     @SimpleFunction(description = "Set Volume (0-100)")
+
+     @SimpleFunction(description = "Set Volume")
     public void SetVolume(String deviceID, int volume) {
   
        
