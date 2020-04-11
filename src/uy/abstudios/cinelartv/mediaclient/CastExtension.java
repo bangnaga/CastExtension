@@ -2,6 +2,8 @@
 Authors: Alexander Barrios
     
 Version alpha
+
+Extensión creada para la aplicación CinelarTV
 **/
 
 package uy.abstudios.cinelartv.mediaclient;
@@ -10,7 +12,6 @@ package uy.abstudios.cinelartv.mediaclient;
 
 import com.google.appinventor.components.annotations.*;
 import com.google.appinventor.components.runtime.*;
-import com.google.appinventor.components.runtime.util.*;
 import android.app.Activity;
 import android.content.Context;
 import android.os.Handler;
@@ -84,8 +85,7 @@ private YailList extras;
 
 
 
-@SimpleProperty(category = PropertyCategory.BEHAVIOR,
-      description = "Return configured APP_ID in Designer")
+@SimpleProperty(category = PropertyCategory.BEHAVIOR)
     public String AppID() {
       return APP_ID;
     }
@@ -111,6 +111,7 @@ public YailList getDeviceList() {
   return chromecastDevices;
 }
 
+
 //@SimpleFunction(description = "Return a list of discovered Chromecast Devices")
 //public String getDeviceList() {
   //ArrayList<ChromeCast> casts = ChromeCasts.get();
@@ -122,7 +123,7 @@ public YailList getDeviceList() {
   
        
         
-          //MyCodeHere
+          //Código para establecer el volúmen del dispositivo Chromecast indicado 
         }                    
 
 
@@ -132,7 +133,7 @@ public YailList getDeviceList() {
       
       
 
-@SimpleFunction(description = "Get all Chromecast devices")
+@SimpleFunction(description = "Start devices scan")
     public void startDiscovery() {
       try {
   ChromeCasts.startDiscovery();
