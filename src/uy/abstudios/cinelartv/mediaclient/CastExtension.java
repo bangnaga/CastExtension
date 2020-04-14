@@ -162,11 +162,11 @@ catch (Exception e) {
 
 
     @SimpleFunction(description = "Show list of devices detected (BT)")
-  public List<String> ListaDispositivos(ServiceEvent se) {
+  public List<String> ListaDispositivos() {
     List<String> listachromecasts = new ArrayList<String>();
 
     
-            String deviceName = ChromeCast(mDNS, se.getInfo().getName());
+            String deviceName = ChromeCast(mDNS, javax.jmdns.ServiceEvent.getInfo().getName());
             listachromecasts.add(deviceName);
             return listachromecasts;
           }
