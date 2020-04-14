@@ -166,7 +166,7 @@ catch (Exception e) {
     List<String> listachromecasts = new ArrayList<String>();
 
     
-            String deviceName = ChromeCast(mDNS, javax.jmdns.ServiceEvent.getInfo().getName());
+            String deviceName = su.litvak.chromecast.api.v2.ChromeCast(mDNS, javax.jmdns.ServiceEvent.getInfo().getName());
             listachromecasts.add(deviceName);
             return listachromecasts;
           }
