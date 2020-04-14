@@ -164,12 +164,12 @@ catch (Exception e) {
     
             String deviceName = ChromeCast(mDNS, se.getInfo().getName());
             listachromecasts.add(deviceName);
+            return listachromecasts;
           }
         
       
     }
 
-    return listachromecasts;
   
 
   
