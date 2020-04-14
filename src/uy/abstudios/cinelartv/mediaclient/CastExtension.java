@@ -38,6 +38,7 @@ import gnu.lists.Pair;
 import gnu.lists.LList;
 import java.util.List;
 import su.litvak.chromecast.api.v2.*;
+import su.litvak.chromecast.api.v2.ChromeCast.*;
 import org.slf4j.*;
 import com.fasterxml.jackson.databind.*;
 import javax.jmdns.JmDNS;
@@ -161,12 +162,12 @@ catch (Exception e) {
     }
 
 
-    @SimpleFunction(description = "Show list of devices detected (BT)")
+    @SimpleFunction(description = "Show list of devices detected")
   public List<String> ListaDispositivos() {
     List<String> listachromecasts = new ArrayList<String>();
 
     
-            String deviceName = su.litvak.chromecast.api.v2.ChromeCast(mDNS, javax.jmdns.ServiceEvent.getInfo().getName());
+            String deviceName = ChromeCast(mDNS, javax.jmdns.ServiceEvent.getInfo().getName());
             listachromecasts.add(deviceName);
             return listachromecasts;
           }
