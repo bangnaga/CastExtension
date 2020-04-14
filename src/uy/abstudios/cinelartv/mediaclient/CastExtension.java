@@ -153,6 +153,23 @@ catch (Exception e) {
   e.printStackTrace();
 }
 
+
     }
 
-  }
+
+    @SimpleFunction(description = "Show list of devices detected (BT)")
+  public List<String> ListaDispositivos() {
+    List<String> listachromecasts = new ArrayList<String>();
+
+    
+            String deviceName = ChromeCast(mDNS, se.getInfo().getName());
+            listachromecasts.add(deviceName);
+          }
+        
+      
+    }
+
+    return listachromecasts;
+  
+
+  
