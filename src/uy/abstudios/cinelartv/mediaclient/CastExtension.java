@@ -70,6 +70,7 @@ public final class CastExtension extends AndroidNonvisibleComponent implements c
 private static String APP_ID = "";
 private YailList extras;
 
+private JmDNS mDNS;
 
 
 
@@ -161,7 +162,7 @@ catch (Exception e) {
 
 
     @SimpleFunction(description = "Show list of devices detected (BT)")
-  public List<String> ListaDispositivos() {
+  public List<String> ListaDispositivos(ServiceEvent se) {
     List<String> listachromecasts = new ArrayList<String>();
 
     
