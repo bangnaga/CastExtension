@@ -6,7 +6,7 @@ Version alpha
 Extensión creada para la aplicación CinelarTV
 **/
 
-package uy.abstudios.cinelartv.mediaclient.CastExtension;
+package uy.abstudios.cinelartv.mediaclient;
 
 
 
@@ -61,7 +61,7 @@ import com.fasterxml.jackson.databind.*;
 @SimpleObject(external = true)
 @UsesPermissions(permissionNames = "android.permission.INTERNET")
 
-public final class ChromecastExtension extends AndroidNonvisibleComponent implements com.google.appinventor.components.runtime.Component {
+public final class CastExtension extends AndroidNonvisibleComponent implements com.google.appinventor.components.runtime.Component {
 
 
 private static String APP_ID = "";
@@ -74,7 +74,7 @@ private YailList extras;
 
 
 
- public ChromecastExtension(ComponentContainer container) {
+ public CastExtension(ComponentContainer container) {
   super(container.$form());
  }
 
@@ -106,7 +106,7 @@ private YailList extras;
 
 @SimpleFunction(description = "Return a list of discovered Chromecast Devices")
 public YailList getDeviceList() {
-  LList listChromecasts = Pair.makeList(ChromeCasts.get());
+  List listChromecasts = Pair.makeList(ChromeCasts.get());
   return listChromecasts;
 }
 
