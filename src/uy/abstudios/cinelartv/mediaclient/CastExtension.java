@@ -40,6 +40,9 @@ import java.util.List;
 import su.litvak.chromecast.api.v2.*;
 import org.slf4j.*;
 import com.fasterxml.jackson.databind.*;
+import javax.jmdns.JmDNS;
+import javax.jmdns.ServiceEvent;
+import javax.jmdns.ServiceListener;
 
 
 
