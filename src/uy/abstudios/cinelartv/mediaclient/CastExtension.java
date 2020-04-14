@@ -143,4 +143,16 @@ catch (Exception e) {
 
     }
 
+
+    @SimpleFunction(description = "Stop devices scan")
+    public void stopDiscovery() {
+      try {
+  ChromeCasts.stopDiscovery();
+}
+catch (Exception e) {
+  e.printStackTrace();
+}
+
+    }
+
   }
