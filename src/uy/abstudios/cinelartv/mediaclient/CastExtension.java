@@ -179,8 +179,8 @@ catch (Exception e) {
     List<String> listachromecasts = new ArrayList<String>();
 
     for (Object dispositivos : ChromeCasts.get()) {
-            ServiceEvent serviceEvent = (ServiceEvent) dispositivos.clone();
-            String deviceName = ChromeCasts(mDNS, serviceEvent.getInfo().getName());
+            ServiceEvent serviceEvent = (ServiceEvent) dispositivos;
+            String deviceName = ChromeCast(mDNS, serviceEvent.getInfo().getName());
             listachromecasts.add(deviceName);
             return listachromecasts;
           }
