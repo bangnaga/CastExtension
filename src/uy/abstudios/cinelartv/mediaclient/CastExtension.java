@@ -45,7 +45,7 @@ import javax.jmdns.JmDNS;
 import javax.jmdns.ServiceEvent;
 import javax.jmdns.ServiceListener;
 import java.io.IOException;
-
+import java.security.GeneralSecurityException;
 
 
 
@@ -187,7 +187,7 @@ catch (Exception e) {
     }
     
     @SimpleFunction(description="")
-    public void ConnectToDevice(int index) throws IOException {
+    public void ConnectToDevice(int index) throws IOException, GeneralSecurityException {
     chromecast = ChromeCasts.get().get(index);
     chromecast.connect();
     }
