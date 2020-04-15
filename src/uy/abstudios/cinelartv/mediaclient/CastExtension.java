@@ -70,7 +70,7 @@ public final class CastExtension extends AndroidNonvisibleComponent implements c
 
 private static String APP_ID = "";
 private YailList extras;
-
+private ChromeCast chromecast;
 private JmDNS mDNS;
 
 
@@ -123,19 +123,29 @@ return chromeCasts;
 
 
      @SimpleFunction(description = "Set Volume")
-    public void SetVolume(String deviceID, int volume) {
-  
-       
-        
-          //Código para establecer el volúmen del dispositivo Chromecast indicado 
-        }                    
+    public void SetVolume(String volume) {
+         chromecast.setVolume(volume);
+        }
 
+     @SimpleFunction(description="")
+     public void Pause(){
+     chromecast.pause();
+     }
 
-
-
-
-      
-      
+     @SimpleFunction(description="")
+     public void Play(){
+     chromecast.play();
+     }
+     
+     @SimpleFunction(description="")
+     public void Seek(int seek){
+     chromecast.seek(seek);
+     }
+     
+     @SimpleFunction(description="")
+     public void SetMuted(boolean mute){
+     chromecast.setMuted(mute);
+     }
 
 @SimpleFunction(description = "Start devices scan")
     public void startDiscovery() {
@@ -173,6 +183,12 @@ catch (Exception e) {
           }
         
       
+    }
+    
+    @SimpleFunction(description="")
+    public void ConnectToDevice(int index) {
+    chromecast = ChromeCasts.get().get(index);
+    chromecast.connect()
     }
 }
   
