@@ -96,18 +96,6 @@ private JmDNS mDNS;
     // ------------------------
 
 
-@SimpleFunction(description = "Return a list of discovered Chromecast Devices")
-public YailList getDeviceList() {
-YailList chromeCasts = YailList.makeList(ChromeCasts.get());
-return chromeCasts;
-}
-
-
-//@SimpleFunction(description = "Return a list of discovered Chromecast Devices")
-//public String getDeviceList() {
-  //ArrayList<ChromeCast> casts = ChromeCasts.get();
-//}
-
 
      @SimpleFunction(description = "Set Volume")
     public void SetVolume(float volume) throws IOException {
