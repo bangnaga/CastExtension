@@ -182,14 +182,12 @@ catch (Exception e) {
             ServiceEvent serviceEvent = (ServiceEvent) dispositivos;
             String deviceName = serviceEvent.getInfo().getName();
             listachromecasts.add(deviceName);
-            return listachromecasts;
           }
-        
-      
+        return listachromecasts;
     }
     
     @SimpleFunction(description="")
-    public void ConnectToDevice(int index) {
+    public void ConnectToDevice(int index) throws IOException {
     chromecast = ChromeCasts.get().get(index);
     chromecast.connect();
     }
