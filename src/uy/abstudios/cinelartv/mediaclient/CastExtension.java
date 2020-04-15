@@ -190,6 +190,11 @@ catch (Exception e) {
     chromecast = ChromeCasts.get().get(index);
     chromecast.connect();
     }
+    
+    @SimpleFunction
+    public void SetMedia(String title, String thumbnail, String video){
+    chromecast.load(title, thumbnail, video, null);
+    }
 }
   
 
