@@ -83,7 +83,6 @@ private JmDNS mDNS;
  public CastExtension(ComponentContainer container) {
   super(container.$form());
   context = (Context) container.$context();
-  serviceEvent = new ServiceEvent(context);
  }
 
 
@@ -180,7 +179,7 @@ catch (Exception e) {
     List<String> listachromecasts = new ArrayList<String>();
 
     for (Object dispositivos : ChromeCasts.get()) {
-            ServiceEvent serviceEvent = (ServiceEvent) dispositivos.clone;
+            ServiceEvent serviceEvent = (ServiceEvent) dispositivos.clone();
             String deviceName = ChromeCasts(mDNS, serviceEvent.getInfo().getName());
             listachromecasts.add(deviceName);
             return listachromecasts;
