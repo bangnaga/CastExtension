@@ -65,7 +65,7 @@ import java.io.IOException;
 @SimpleObject(external = true)
 @UsesPermissions(permissionNames = "android.permission.INTERNET")
 
-public final class CastExtension extends AndroidNonvisibleComponent implements com.google.appinventor.components.runtime.Component throws IOException{
+public final class CastExtension extends AndroidNonvisibleComponent implements com.google.appinventor.components.runtime.Component {
 
 
 private static String APP_ID = "";
@@ -125,27 +125,27 @@ return chromeCasts;
 
 
      @SimpleFunction(description = "Set Volume")
-    public void SetVolume(float volume) {
+    public void SetVolume(float volume) throws IOException {
          chromecast.setVolume(volume);
         }
 
      @SimpleFunction(description="")
-     public void Pause(){
+     public void Pause() throws IOException {
      chromecast.pause();
      }
 
      @SimpleFunction(description="")
-     public void Play(){
+     public void Play() throws IOException {
      chromecast.play();
      }
      
      @SimpleFunction(description="")
-     public void Seek(int seek){
+     public void Seek(int seek) throws IOException {
      chromecast.seek(seek);
      }
      
      @SimpleFunction(description="")
-     public void SetMuted(boolean mute){
+     public void SetMuted(boolean mute) throws IOException {
      chromecast.setMuted(mute);
      }
 
@@ -195,7 +195,7 @@ catch (Exception e) {
     }
     
     @SimpleFunction
-    public void SetMedia(String title, String thumbnail, String video){
+    public void SetMedia(String title, String thumbnail, String video) throws IOException {
     chromecast.load(title, thumbnail, video, null);
     }
 }
