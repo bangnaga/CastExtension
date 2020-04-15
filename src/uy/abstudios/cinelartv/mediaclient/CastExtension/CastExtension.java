@@ -126,10 +126,6 @@ private JmDNS mDNS;
     public void startDiscovery() {
       try {
   ChromeCasts.startDiscovery();
-}
-catch (Exception e) {
-  e.printStackTrace();
-}
 
     }
 
