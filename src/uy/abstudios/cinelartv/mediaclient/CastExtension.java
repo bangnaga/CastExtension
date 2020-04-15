@@ -72,7 +72,6 @@ private static String APP_ID = "";
 private YailList extras;
 private ChromeCast chromecast;
 private Context context;
-private javax.jmdns.ServiceEvent serviceEvent;
 private JmDNS mDNS;
 
 
@@ -181,7 +180,8 @@ catch (Exception e) {
     List<String> listachromecasts = new ArrayList<String>();
 
     for (Object dispositivos : ChromeCasts.get()) {
-            String deviceName = ChromeCasts(mDNS, serviceEvent.getInfo().getName(dispositivos));
+            ServiceEvent serviceEvent = (ServiceEvent) dispositivos.clone;
+            String deviceName = ChromeCasts(mDNS, serviceEvent.getInfo().getName());
             listachromecasts.add(deviceName);
             return listachromecasts;
           }
