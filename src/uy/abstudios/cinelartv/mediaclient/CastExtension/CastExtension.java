@@ -159,9 +159,8 @@ private JmDNS mDNS;
     }
     
     @SimpleFunction(description="")
-    public void ConnectToDeviceWithIP(String ipAddress) throws IOException, GeneralSecurityException{
+    public void ConnectToDeviceWithIP(String ipAddress){
     chromecast = new ChromeCast(ipAddress);
-    chromecast.connect();
     }
     
     @SimpleFunction
