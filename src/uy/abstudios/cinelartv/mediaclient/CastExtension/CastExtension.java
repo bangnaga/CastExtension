@@ -144,15 +144,14 @@ catch (Exception e) {
 
 
     @SimpleFunction(description = "Show list of devices detected")
-  public List<String> ListaDispositivos() {
-    List<String> listachromecasts = new ArrayList<String>();
+    public List<String> DevicesList() {
+    List<String> listchromecasts = new ArrayList<String>();
 
-    for (Object dispositivos : ChromeCasts.get()) {
-            ServiceEvent serviceEvent = (ServiceEvent) dispositivos;
-            String deviceName = serviceEvent.getInfo().getName();
-            listachromecasts.add(deviceName);
+    for (ChromeCast device : ChromeCasts.get()){
+            String deviceName = device.getName();
+            listchromecasts.add(deviceName);
           }
-        return listachromecasts;
+        return listchromecasts;
     }
     
     @SimpleFunction(description="")
