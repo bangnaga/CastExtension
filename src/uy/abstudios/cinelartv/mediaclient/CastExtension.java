@@ -71,6 +71,8 @@ public final class CastExtension extends AndroidNonvisibleComponent implements c
 private static String APP_ID = "";
 private YailList extras;
 private ChromeCast chromecast;
+private Context context
+private javax.jmdns.ServiceEvent serviceEvent;
 private JmDNS mDNS;
 
 
@@ -81,6 +83,8 @@ private JmDNS mDNS;
 
  public CastExtension(ComponentContainer container) {
   super(container.$form());
+  context = (Context) container.$context();
+  serviceEvent = new ServiceEvent(context);
  }
 
 
@@ -123,7 +127,7 @@ return chromeCasts;
 
 
      @SimpleFunction(description = "Set Volume")
-    public void SetVolume(String volume) {
+    public void SetVolume(float volume) {
          chromecast.setVolume(volume);
         }
 
@@ -177,7 +181,7 @@ catch (Exception e) {
     List<String> listachromecasts = new ArrayList<String>();
 
     for (Object dispositivos : ChromeCasts.get()) {
-            String deviceName = ChromeCasts(mDNS, javax.jmdns.ServiceEvent.getInfo().getName(dispositivos));
+            String deviceName = ChromeCasts(mDNS, serviceEvent.getInfo().getName(dispositivos));
             listachromecasts.add(deviceName);
             return listachromecasts;
           }
