@@ -180,7 +180,8 @@ catch (Exception e) {
 
     for (Object dispositivos : ChromeCasts.get()) {
             ServiceEvent serviceEvent = (ServiceEvent) dispositivos;
-            String deviceName = ChromeCast(mDNS, serviceEvent.getInfo().getName());
+            ChromeCast(mDNS, serviceEvent.getInfo().getName());
+            String deviceName = ChromeCast.getName();
             listachromecasts.add(deviceName);
             return listachromecasts;
           }
