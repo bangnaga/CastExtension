@@ -6,7 +6,7 @@ Version alpha
 Extensión creada para la aplicación CinelarTV
 **/
 
-package uy.abstudios.cinelartv.mediaclient;
+package uy.abstudios.cinelartv.mediaclient.CastExtension;
 
 
 
@@ -23,8 +23,6 @@ import java.awt.*;
 import java.awt.event.*;
 import android.view.Window;
 import java.util.ArrayList;
-import gnu.lists.Pair;
-import gnu.lists.LList;
 import java.util.List;
 import su.litvak.chromecast.api.v2.*;
 import su.litvak.chromecast.api.v2.ChromeCast.*;
@@ -45,16 +43,13 @@ import java.security.GeneralSecurityException;
  category = ComponentCategory.EXTENSION,
  description = "Chromecast Extension for CinelarTV App",
  nonVisible = true,
- iconName = "https://cdn.iconscout.com/icon/free/png-512/cast-226401.png",
+ iconName = "https://cdn.iconscout.com/icon/free/png-256/cast-226401.png",
  helpUrl = "https://developers.cinelartv.tk/opensource/cast.html")
-
-
-
 @UsesLibraries(libraries = "api-v2-0.11.4-SNAPSHOT.jar,jackson-annotations-2.10.3.jar,jackson-core-2.10.3.jar,jackson-databind-2.10.3.jar,protobuf-java-2.6.0.jar,jmdns-3.5.5.jar,slf4j-api-1.7.30.jar")
 @SimpleObject(external = true)
 @UsesPermissions(permissionNames = "android.permission.INTERNET")
 
-public final class CastExtension extends AndroidNonvisibleComponent implements com.google.appinventor.components.runtime.Component {
+public final class CastExtension extends AndroidNonvisibleComponent implements Component {
 
 
 private static String APP_ID = "";
