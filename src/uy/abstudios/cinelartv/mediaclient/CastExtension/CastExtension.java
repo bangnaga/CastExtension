@@ -122,41 +122,34 @@ private JmDNS mDNS;
      chromecast.setMuted(mute);
      }
 
-@SimpleFunction(description = "Start devices scan")
+    @SimpleFunction(description = "Start devices scan")
     public void startDiscovery() {
-      try {
-  ChromeCasts.startDiscovery();
-}
-catch (Exception e) {
-  e.printStackTrace();
-}
-
+    try {
+    ChromeCasts.startDiscovery();
+    } catch (Exception e) {
+    e.printStackTrace();
     }
-
+    }
 
     @SimpleFunction(description = "Stop devices scan")
     public void stopDiscovery() {
-      try {
-  ChromeCasts.stopDiscovery();
-}
-catch (Exception e) {
-  e.printStackTrace();
-}
-
-
+    try {
+    ChromeCasts.stopDiscovery();
+    } catch (Exception e) {
+    e.printStackTrace();
+    }
     }
 
 
     @SimpleFunction(description = "Show list of devices detected")
-  public List<String> ListaDispositivos() {
-    List<String> listachromecasts = new ArrayList<String>();
+    public List<String> DevicesList() {
+    List<String> listchromecasts = new ArrayList<String>();
 
-    for (Object dispositivos : ChromeCasts.get()) {
-            ServiceEvent serviceEvent = (ServiceEvent) dispositivos;
-            String deviceName = serviceEvent.getInfo().getName();
-            listachromecasts.add(deviceName);
+    for (ChromeCast device : ChromeCasts.get()){
+            String deviceName = device.getName();
+            listchromecasts.add(deviceName);
           }
-        return listachromecasts;
+        return listchromecasts;
     }
     
     @SimpleFunction(description="")
