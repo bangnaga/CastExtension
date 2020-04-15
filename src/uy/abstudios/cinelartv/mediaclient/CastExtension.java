@@ -44,7 +44,7 @@ import com.fasterxml.jackson.databind.*;
 import javax.jmdns.JmDNS;
 import javax.jmdns.ServiceEvent;
 import javax.jmdns.ServiceListener;
-
+import java.io.IOException;
 
 
 
@@ -65,7 +65,7 @@ import javax.jmdns.ServiceListener;
 @SimpleObject(external = true)
 @UsesPermissions(permissionNames = "android.permission.INTERNET")
 
-public final class CastExtension extends AndroidNonvisibleComponent implements com.google.appinventor.components.runtime.Component {
+public final class CastExtension extends AndroidNonvisibleComponent implements com.google.appinventor.components.runtime.Component throws IOException{
 
 
 private static String APP_ID = "";
