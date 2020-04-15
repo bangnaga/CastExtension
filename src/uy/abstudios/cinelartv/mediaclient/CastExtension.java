@@ -12,6 +12,7 @@ package uy.abstudios.cinelartv.mediaclient;
 
 import com.google.appinventor.components.annotations.*;
 import com.google.appinventor.components.runtime.*;
+import com.google.appinventor.components.common.*;
 import android.app.Activity;
 import android.content.Context;
 import android.os.Handler;
@@ -21,19 +22,6 @@ import java.awt.*;
 import java.awt.event.*;
 import android.view.Window;
 import java.util.ArrayList;
-import com.google.appinventor.components.annotations.DesignerComponent;
-import com.google.appinventor.components.annotations.DesignerProperty;
-import com.google.appinventor.components.annotations.PropertyCategory;
-import com.google.appinventor.components.annotations.SimpleEvent;
-import com.google.appinventor.components.annotations.SimpleFunction;
-import com.google.appinventor.components.annotations.SimpleObject;
-import com.google.appinventor.components.annotations.SimpleProperty;
-import com.google.appinventor.components.common.ComponentCategory;
-import com.google.appinventor.components.common.PropertyTypeConstants;
-import com.google.appinventor.components.common.YaVersion;
-import com.google.appinventor.components.runtime.util.SdkLevel;
-import com.google.appinventor.components.runtime.util.ElementsUtil;
-import com.google.appinventor.components.runtime.util.YailList;
 import gnu.lists.Pair;
 import gnu.lists.LList;
 import java.util.List;
@@ -56,7 +44,7 @@ import java.security.GeneralSecurityException;
  category = ComponentCategory.EXTENSION,
  description = "Chromecast Extension for CinelarTV App",
  nonVisible = true,
- iconName = "https://cdn.worldvectorlogo.com/logos/cast-icon-chromecast.svg",
+ iconName = "https://cdn.iconscout.com/icon/free/png-512/cast-226401.png",
  helpUrl = "https://developers.cinelartv.tk/opensource/cast.html")
 
 
