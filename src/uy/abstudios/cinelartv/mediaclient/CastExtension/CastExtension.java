@@ -158,6 +158,11 @@ private JmDNS mDNS;
     chromecast.connect();
     }
     
+    @SimpleFunction(description="")
+    public void ConnectToDeviceWithIP(String ipAddress){
+    chromecast = new ChromeCast(ipAddress);
+    }
+    
     @SimpleFunction
     public void SetMedia(String title, String thumbnail, String video) throws IOException {
     chromecast.load(title, thumbnail, video, null);
