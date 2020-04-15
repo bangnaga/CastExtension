@@ -21,6 +21,6 @@ jobs:
       - name: 'Publicar a Artefactos'
         uses: actions/upload-artifact@v1.0.0
         with:
-          name: uy.abstudios.cinelartv.mediaclient.aix
-          path: out/uy.abstudios.cinelartv.mediaclient.aix
+          name: uy.abstudios.cinelartv.mediaclient.CastExtension.aix
+          path: out/uy.abstudios.cinelartv.mediaclient.CastExtension.aix
      
