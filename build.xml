@@ -29,16 +29,15 @@
            includeantruntime="false">
       <classpath>
         <pathelement location="lib/appinventor/AndroidRuntime.jar" />
-        <pathelement location="lib/deps/api-v2-0.11.4-SNAPSHOT.jar" />
+        <pathelement location="lib/deps/api-v2-0.10.3-SNAPSHOT.jar" />
         <pathelement location="lib/appinventor/AnnotationProcessors.jar" />
 
          <!-- ================
-      com.fasterxml.jackson.*
+      jackson.*
       ======================== -->
 
-        <pathelement location="lib/deps/jackson-annotations-2.10.3.jar" />
-        <pathelement location="lib/deps/jackson-core-2.10.3.jar" />
-        <pathelement location="lib/deps/jackson-databind-2.10.3.jar" />
+        <pathelement location="lib/deps/jackson-core-asl-1.9.13.jar" />
+        <pathelement location="lib/deps/jackson-mapper-asl-1.9.13.jar" />
 
  <!-- ================
       com.google.protobuf.*
