@@ -188,7 +188,7 @@ catch (Exception e) {
     @SimpleFunction(description="")
     public void ConnectToDevice(int index) {
     chromecast = ChromeCasts.get().get(index);
-    chromecast.connect()
+    chromecast.connect();
     }
 }
   
