@@ -26,7 +26,7 @@ import java.util.List;
 import su.litvak.chromecast.api.v2.*;
 import su.litvak.chromecast.api.v2.ChromeCast.*;
 import org.slf4j.*;
-import org.codehaus.jackson.*;
+import com.fasterxml.jackson.*;
 import javax.jmdns.JmDNS;
 import javax.jmdns.ServiceEvent;
 import javax.jmdns.ServiceListener;
