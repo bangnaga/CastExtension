@@ -1,5 +1,5 @@
 /**
-Authors: Alexander Barrios, Krish Jha
+Authors: Alexander Barrios
     
 Version alpha
 
