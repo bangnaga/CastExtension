@@ -166,6 +166,7 @@ private JmDNS mDNS;
     @SimpleFunction
     public void SetMedia(String title, String thumbnail, String video) throws IOException {
     chromecast.load(title, thumbnail, video, null);
+    return;
     }
 }
   
