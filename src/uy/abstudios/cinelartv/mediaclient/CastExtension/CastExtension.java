@@ -57,7 +57,7 @@ private static String APP_ID = "";
 private YailList extras;
 private ArrayList<ChromeCast> castsList;
 private ChromeCast chromecast;
-private ChromeCasts casts;
+public ChromeCasts casts;
 private Context context;
 private JmDNS mDNS;
 
