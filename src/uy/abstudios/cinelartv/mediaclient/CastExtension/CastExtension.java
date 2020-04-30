@@ -184,6 +184,10 @@ private JmDNS mDNS;
             @Override public void newChromeCastDiscovered(ChromeCast chromeCast){
                 OnDeviceDiscovered(chromeCast.toString());
             }
+            
+            @Override public void chromeCastRemoved(ChromeCast chromeCast){
+                
+            }
         });
     }
 }
