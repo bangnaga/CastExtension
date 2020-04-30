@@ -181,6 +181,31 @@ private JmDNS mDNS;
     public List<ChromeCast> DevicesList() {
         return castsList;
     }
+
+
+
+
+
+    @SimpleFunction(description = "Launch Application in Connected Device") 
+    public void LaunchApp() {
+
+    	try {
+    		ChromeCast.LaunchApp(APP_ID);
+    	} 
+
+    	catch (IOException e) {
+            status = e.getMessage() + " , " + e.toString();
+            e.printStackTrace();
+        }
+        
+    }
+
+
+
+
+
+
+
     
     @SimpleFunction
     public int DiscoveredDevicesCount(){
