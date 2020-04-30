@@ -193,7 +193,11 @@ private JmDNS mDNS;
     @SimpleFunction(description="")
     public void ConnectToDeviceWithIP(String ipAddress){
     chromecast = new ChromeCast(ipAddress);
-    chromecast.connect();
+        try{
+            chromecast.connect();
+        } catch(Exception e ){
+            e.printStackTrace();
+        }
     }
     
     @SimpleFunction
