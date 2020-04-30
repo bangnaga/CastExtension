@@ -190,7 +190,7 @@ private JmDNS mDNS;
     public void LaunchApp() {
     	String status;
     	try {
-    		chromecast.LaunchApp(APP_ID);
+    		chromecast.launchApp(APP_ID);
     	} 
 
     	catch (IOException e) {
