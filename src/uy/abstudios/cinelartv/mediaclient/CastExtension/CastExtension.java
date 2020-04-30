@@ -127,16 +127,16 @@ private JmDNS mDNS;
      chromecast.setMuted(mute);
      }
 
+
     @SimpleFunction(description = "Start devices scan")
     public void startDiscovery() {
-    try {
-        ChromeCasts.startDiscovery();
         appendListener();
-    } catch (Exception e) {
-        OnError("StartingDiscoveringDevices", e.toString());
-        e.printStackTrace();
-    }
-    }
+
+    new StartListening().execute();
+
+}
+
+
 
     @SimpleFunction(description = "Stop devices scan")
     public void stopDiscovery() {
@@ -232,7 +232,22 @@ private JmDNS mDNS;
             }
         });
     }
+
 }
   
+private class StartListening extends AsyncTask <Void, Void, Void> {
 
-  
+    	@Override protected void doInBackground(){
+
+try {
+        ChromeCasts.startDiscovery();
+        appendListener();
+    } catch (Exception e) {
+        OnError("StartingDiscoveringDevices", e.toString());
+        e.printStackTrace();
+    }
+    	}
+
+    	
+    
+    }
