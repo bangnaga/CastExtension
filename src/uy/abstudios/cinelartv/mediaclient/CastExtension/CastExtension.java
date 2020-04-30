@@ -57,7 +57,7 @@ private static String APP_ID = "";
 private YailList extras;
 private ArrayList<ChromeCast> castsList;
 private ChromeCast chromecast;
-public ChromeCasts casts;
+private ChromeCasts casts;
 private Context context;
 private JmDNS mDNS;
 
@@ -259,8 +259,7 @@ private JmDNS mDNS;
         });
     }
 
-}
-  
+    
 class StartListening extends AsyncTask <Void, Void, Void> {
 
     	@Override protected Void doInBackground(Void... args){
@@ -275,4 +274,8 @@ try {
     }
     return null;
     	}
-    }
+    }    
+    
+}
+  
+
