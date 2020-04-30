@@ -57,6 +57,7 @@ private static String APP_ID = "";
 private YailList extras;
 private ArrayList<ChromeCast> castsList;
 private ChromeCast chromecast;
+private ChromeCasts casts;
 private Context context;
 private JmDNS mDNS;
 
@@ -70,6 +71,7 @@ private JmDNS mDNS;
   super(container.$form());
   context = (Context) container.$context();
   castsList = new ArrayList<>();
+  casts = new ChromeCasts();
  }
 
 
@@ -79,10 +81,7 @@ private JmDNS mDNS;
 
 
 
-@SimpleProperty(category = PropertyCategory.BEHAVIOR)
-    public String AppID() {
-      return APP_ID;
-    }
+
 
  @DesignerProperty(editorType = PropertyTypeConstants.PROPERTY_TYPE_STRING, defaultValue = "")
     @SimpleProperty
@@ -267,7 +266,7 @@ class StartListening extends AsyncTask <Void, Void, Void> {
     	@Override protected Void doInBackground(Void... args){
 
 try {
-        ChromeCasts.startDiscovery();
+        casts.startDiscovery();
         
     } catch (Exception e) {
         
