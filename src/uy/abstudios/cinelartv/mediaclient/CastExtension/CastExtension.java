@@ -55,6 +55,7 @@ public final class CastExtension extends AndroidNonvisibleComponent implements C
 
 private static String APP_ID = "";
 private YailList extras;
+private ArrayList<ChromeCast> castsList;
 private ChromeCast chromecast;
 private Context context;
 private JmDNS mDNS;
@@ -68,6 +69,7 @@ private JmDNS mDNS;
  public CastExtension(ComponentContainer container) {
   super(container.$form());
   context = (Context) container.$context();
+  castsList = new ArrayList<>();
  }
 
 
@@ -128,7 +130,7 @@ private JmDNS mDNS;
         ChromeCasts.startDiscovery();
         appendListener();
     } catch (Exception e) {
-        OnError("DiscoveringDevices", e.toString());
+        OnError("StartingDiscoveringDevices", e.toString());
         e.printStackTrace();
     }
     }
@@ -138,7 +140,20 @@ private JmDNS mDNS;
     try {
     ChromeCasts.stopDiscovery();
     } catch (Exception e) {
+        OnError("StoppingDiscoveringDevices", e.toString());
     e.printStackTrace();
+    }
+    }
+ 
+    @SimpleFunction(description = "Restart devices scan")
+    public void RestartDiscovery() {
+    try {
+        castsList.clear();
+        ChromeCasts.restartDiscovery();
+        appendListener();
+    } catch (Exception e) {
+        OnError("RestartingDiscoveringDevices", e.toString());
+        e.printStackTrace();
     }
     }
     
@@ -151,30 +166,31 @@ private JmDNS mDNS;
         } catch (IOException e) {
             status = e.getMessage() + " , " + e.toString();
             OnError("ObtainingDeviceStatus", status);
+            e.printStackTrace();
         }
         return status;
     }
 
     @SimpleFunction(description = "Show list of devices detected")
-    public List<String> DevicesList() {
-    List<String> listchromecasts = new ArrayList<String>();
-
-    for (ChromeCast device : ChromeCasts.get()){
-            String deviceName = device.getName();
-            listchromecasts.add(deviceName);
-          }
-        return listchromecasts;
+    public List<ChromeCast> DevicesList() {
+        return castsList;
+    }
+    
+    @SimpleFunction
+    public int DiscoveredDevicesCount(){
+        return castsList.size();
     }
     
     @SimpleFunction(description="")
     public void ConnectToDevice(int index) throws IOException, GeneralSecurityException {
-    chromecast = ChromeCasts.get().get(index);
+    chromecast = castsList.get(index);
     chromecast.connect();
     }
     
     @SimpleFunction(description="")
     public void ConnectToDeviceWithIP(String ipAddress){
     chromecast = new ChromeCast(ipAddress);
+    chromecast.connect();
     }
     
     @SimpleFunction
@@ -187,14 +203,15 @@ private JmDNS mDNS;
         EventDispatcher.dispatchEvent(this, "OnError", process, message);
     }
    @SimpleEvent(description="")
-    public void OnDeviceDiscovered(String chromecast){
-        EventDispatcher.dispatchEvent(this, "OnDiscoveryFinished", chromecast);
+    public void OnDeviceDiscovered(String deviceName,int deviceAddress, int devicePort){
+        EventDispatcher.dispatchEvent(this, "OnDiscoveryFinished", deviceName, deviceAddress, devicePort);
     }
     
     public void appendListener(){
         ChromeCasts.registerListener(new ChromeCastsListener(){
             @Override public void newChromeCastDiscovered(ChromeCast chromeCast){
-                OnDeviceDiscovered(chromeCast.toString());
+                castsList.add(chromeCast)
+                OnDeviceDiscovered(chromeCast.getName(), chromeCast.getAddress(), chromeCast.getPort());
             }
             
             @Override public void chromeCastRemoved(ChromeCast chromeCast){
