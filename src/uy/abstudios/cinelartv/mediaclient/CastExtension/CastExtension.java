@@ -203,19 +203,25 @@ private JmDNS mDNS;
         EventDispatcher.dispatchEvent(this, "OnError", process, message);
     }
    @SimpleEvent(description="")
-    public void OnDeviceDiscovered(String deviceName,int deviceAddress, int devicePort){
-        EventDispatcher.dispatchEvent(this, "OnDiscoveryFinished", deviceName, deviceAddress, devicePort);
+    public void OnChromeCastDiscovered(String deviceName,int deviceAddress, int devicePort){
+        EventDispatcher.dispatchEvent(this, "OnChromeCastDiscovered", deviceName, deviceAddress, devicePort);
     }
-    
+   
+    @SimpleEvent(description="")
+    public void OnChromeCastRemoved(String deviceName,int deviceAddress, int devicePort){
+        EventDispatcher.dispatchEvent(this, "OnChromeCastRemoved", deviceName, deviceAddress, devicePort);
+    }
     public void appendListener(){
         ChromeCasts.registerListener(new ChromeCastsListener(){
             @Override public void newChromeCastDiscovered(ChromeCast chromeCast){
-                castsList.add(chromeCast)
-                OnDeviceDiscovered(chromeCast.getName(), chromeCast.getAddress(), chromeCast.getPort());
+                castsList.add(chromeCast);
+                OnChromeCastDiscovered(chromeCast.getName(), chromeCast.getAddress(), chromeCast.getPort());
             }
             
             @Override public void chromeCastRemoved(ChromeCast chromeCast){
-                
+                if (castsList.contains(chromeCast))
+                    castsList.remove(chromeCast);
+                OnChromeCastRemoved(chromeCast.getName(), chromeCast.getAddress(), chromeCast.getPort());
             }
         });
     }
