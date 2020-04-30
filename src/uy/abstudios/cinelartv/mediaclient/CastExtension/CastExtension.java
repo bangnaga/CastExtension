@@ -148,7 +148,7 @@ private JmDNS mDNS;
         {
             status = chromecast.getStatus().toString();
         } cacth (IOException e) {
-            status = "Message: " + e.getMessage() + " , Cause:" + e.getCause() + " , " + e.toString();
+            status = "Message: " + e.getMessage() + " , " + e.toString();
         }
         return status;
     }
