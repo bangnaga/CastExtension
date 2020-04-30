@@ -128,13 +128,16 @@ private JmDNS mDNS;
      }
 
 
+
     @SimpleFunction(description = "Start devices scan")
     public void startDiscovery() {
-        appendListener();
 
     new StartListening().execute();
 
 }
+
+
+
 
 
 
@@ -235,7 +238,7 @@ private JmDNS mDNS;
 
 }
   
-private class StartListening extends AsyncTask <Void, Void, Void> {
+public class StartListening extends AsyncTask <Void, Void, Void> {
 
     	@Override protected void doInBackground(){
 
