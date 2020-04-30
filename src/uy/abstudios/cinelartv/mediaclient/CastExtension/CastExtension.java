@@ -128,7 +128,7 @@ private JmDNS mDNS;
         ChromeCasts.startDiscovery();
         appendListener();
     } catch (Exception e) {
-        OnError("DiscoveringDevices". e.toString());
+        OnError("DiscoveringDevices", e.toString());
         e.printStackTrace();
     }
     }
