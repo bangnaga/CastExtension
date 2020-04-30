@@ -9,7 +9,7 @@ Extensión creada para la aplicación CinelarTV
 package uy.abstudios.cinelartv.mediaclient.CastExtension;
 
 
-
+import android.os.AsyncTask;
 import com.google.appinventor.components.annotations.*;
 import com.google.appinventor.components.runtime.*;
 import com.google.appinventor.components.common.*;
