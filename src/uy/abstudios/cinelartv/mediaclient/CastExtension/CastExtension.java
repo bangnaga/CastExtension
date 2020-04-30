@@ -133,7 +133,7 @@ private JmDNS mDNS;
     public void startDiscovery() {
 
     new StartListening().execute();
-
+    appendListener();
 }
 
 
@@ -238,13 +238,13 @@ private JmDNS mDNS;
 
 }
   
-public class StartListening extends AsyncTask <Void, Void, Void> {
+class StartListening extends AsyncTask <Void, Void, Void> {
 
     	@Override protected void doInBackground(){
 
 try {
         ChromeCasts.startDiscovery();
-        appendListener();
+        
     } catch (Exception e) {
         OnError("StartingDiscoveringDevices", e.toString());
         e.printStackTrace();
