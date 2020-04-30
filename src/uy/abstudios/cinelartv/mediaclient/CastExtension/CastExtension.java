@@ -126,6 +126,7 @@ private JmDNS mDNS;
     public void startDiscovery() {
     try {
     ChromeCasts.startDiscovery();
+    appendListener();
     } catch (Exception e) {
     e.printStackTrace();
     }
@@ -139,7 +140,11 @@ private JmDNS mDNS;
     e.printStackTrace();
     }
     }
-
+    
+    @SimpleFunction(description="Returns device status")
+    public String DeviceStatus(){
+        return chromecast.getStatus().toString();
+    }
 
     @SimpleFunction(description = "Show list of devices detected")
     public List<String> DevicesList() {
@@ -166,6 +171,20 @@ private JmDNS mDNS;
     @SimpleFunction
     public void SetMedia(String title, String thumbnail, String video) throws IOException {
     chromecast.load(title, thumbnail, video, null);
+    }
+    
+    
+   @SimpleEvent(description="")
+    public void OnDeviceDiscovered(String chromecast){
+        EventDispatcher.dispatchEvent(this, "OnDiscoveryFinished". chromecast);
+    }
+    
+    public void appendListener(){
+        ChomeCasts.registerListener(new ChromeCastsListener(){
+            @Override public void newChromeCastDiscovered(ChromeCast chromeCast){
+                OnDeviceDiscovered(chromeCast.toString());
+            }
+        });
     }
 }
   
