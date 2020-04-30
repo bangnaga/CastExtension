@@ -241,7 +241,7 @@ private JmDNS mDNS;
         EventDispatcher.dispatchEvent(this, "OnChromeCastDiscovered", deviceName, deviceAddress, devicePort);
     }
    
-    @SimpleEvent(description="")
+    @SimpleEvent(description="Cast removed from ")
     public void OnChromeCastRemoved(String deviceName,String deviceAddress, int devicePort){
         EventDispatcher.dispatchEvent(this, "OnChromeCastRemoved", deviceName, deviceAddress, devicePort);
     }
