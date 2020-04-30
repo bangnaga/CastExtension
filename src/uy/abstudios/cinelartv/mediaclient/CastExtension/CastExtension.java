@@ -149,7 +149,8 @@ private JmDNS mDNS;
         {
             status = chromecast.getStatus().toString();
         } catch (IOException e) {
-            OnError("ObtainingDeviceStatus", e.getMessage() + " , " + e.toString());
+            status = e.getMessage() + " , " + e.toString();
+            OnError("ObtainingDeviceStatus", status);
         }
         return status;
     }
