@@ -143,7 +143,14 @@ private JmDNS mDNS;
     
     @SimpleFunction(description="Returns device status")
     public String DeviceStatus(){
-        return chromecast.getStatus().toString();
+        String status;
+        try
+        {
+            status = chromecast.getStatus().toString();
+        } cacth (IOException e) {
+            status = "Message: " + e.getMessage() + " , Cause:" + e.getCause() + " , " + e.toString();
+        }
+        return status;
     }
 
     @SimpleFunction(description = "Show list of devices detected")
