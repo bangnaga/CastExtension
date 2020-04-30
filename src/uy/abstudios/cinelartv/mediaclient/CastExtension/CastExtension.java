@@ -188,16 +188,15 @@ private JmDNS mDNS;
 
     @SimpleFunction(description = "Launch Application in Connected Device") 
     public void LaunchApp() {
-
+    	String status;
     	try {
-    		ChromeCast.LaunchApp(APP_ID);
+    		chromecast.LaunchApp(APP_ID);
     	} 
 
     	catch (IOException e) {
             status = e.getMessage() + " , " + e.toString();
             e.printStackTrace();
         }
-        
     }
 
 
