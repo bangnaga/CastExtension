@@ -259,6 +259,7 @@ class StartListening extends AsyncTask <Void, Void, Void> {
 
 try {
         ChromeCasts.startDiscovery();
+        castsList = ChromeCasts.get();
         
     } catch (Exception e) {
         OnError("StartingDiscoveryTask", e.toString());
