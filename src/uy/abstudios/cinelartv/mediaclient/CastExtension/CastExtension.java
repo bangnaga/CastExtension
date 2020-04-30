@@ -57,21 +57,14 @@ private static String APP_ID = "";
 private YailList extras;
 private ArrayList<ChromeCast> castsList;
 private ChromeCast chromecast;
-private ChromeCasts casts;
 private Context context;
 private JmDNS mDNS;
-
-
-
-
-
 
 
  public CastExtension(ComponentContainer container) {
   super(container.$form());
   context = (Context) container.$context();
   castsList = new ArrayList<>();
-  casts = new ChromeCasts();
  }
 
 
@@ -265,10 +258,10 @@ class StartListening extends AsyncTask <Void, Void, Void> {
     	@Override protected Void doInBackground(Void... args){
 
 try {
-        casts.startDiscovery();
+        ChromeCasts.startDiscovery();
         
     } catch (Exception e) {
-        
+        OnError("StartingDiscoveryTask", e.toString());
         e.printStackTrace();
 
     }
