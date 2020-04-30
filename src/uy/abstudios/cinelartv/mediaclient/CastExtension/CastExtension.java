@@ -87,7 +87,10 @@ private JmDNS mDNS;
  @DesignerProperty(editorType = PropertyTypeConstants.PROPERTY_TYPE_STRING, defaultValue = "")
     @SimpleProperty
     public void AppID(String applicationID) {
-      APP_ID = applicationID;
+        if(applicationID.equals("DEFAULT_MEDIA_RECEIVER_APPLICATION_ID"))
+           APP_ID = "CC1AD845";
+        else
+           APP_ID = applicationID;
     }
 
 
@@ -203,12 +206,12 @@ private JmDNS mDNS;
         EventDispatcher.dispatchEvent(this, "OnError", process, message);
     }
    @SimpleEvent(description="")
-    public void OnChromeCastDiscovered(String deviceName,int deviceAddress, int devicePort){
+    public void OnChromeCastDiscovered(String deviceName,String deviceAddress, int devicePort){
         EventDispatcher.dispatchEvent(this, "OnChromeCastDiscovered", deviceName, deviceAddress, devicePort);
     }
    
     @SimpleEvent(description="")
-    public void OnChromeCastRemoved(String deviceName,int deviceAddress, int devicePort){
+    public void OnChromeCastRemoved(String deviceName,String deviceAddress, int devicePort){
         EventDispatcher.dispatchEvent(this, "OnChromeCastRemoved", deviceName, deviceAddress, devicePort);
     }
     public void appendListener(){
