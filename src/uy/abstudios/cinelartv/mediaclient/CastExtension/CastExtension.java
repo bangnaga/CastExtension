@@ -125,10 +125,11 @@ private JmDNS mDNS;
     @SimpleFunction(description = "Start devices scan")
     public void startDiscovery() {
     try {
-    ChromeCasts.startDiscovery();
-    appendListener();
+        ChromeCasts.startDiscovery();
+        appendListener();
     } catch (Exception e) {
-    e.printStackTrace();
+        OnError("DiscoveringDevices". e.toString());
+        e.printStackTrace();
     }
     }
 
@@ -148,7 +149,7 @@ private JmDNS mDNS;
         {
             status = chromecast.getStatus().toString();
         } catch (IOException e) {
-            status = "Message: " + e.getMessage() + " , " + e.toString();
+            OnError("ObtainingDeviceStatus", e.getMessage() + " , " + e.toString());
         }
         return status;
     }
@@ -180,7 +181,10 @@ private JmDNS mDNS;
     chromecast.load(title, thumbnail, video, null);
     }
     
-    
+   @SimpleEvent
+    public void OnError(String process, String message){
+        EventDispatcher.dispatchEvent(this, "OnError", process, message);
+    }
    @SimpleEvent(description="")
     public void OnDeviceDiscovered(String chromecast){
         EventDispatcher.dispatchEvent(this, "OnDiscoveryFinished", chromecast);
