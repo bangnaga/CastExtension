@@ -55,7 +55,7 @@ public final class CastExtension extends AndroidNonvisibleComponent implements C
 
 private static String APP_ID = "";
 private YailList extras;
-private ArrayList<ChromeCast> castsList;
+private List<ChromeCast> castsList;
 private ChromeCast chromecast;
 private Context context;
 private JmDNS mDNS;
@@ -64,7 +64,6 @@ private JmDNS mDNS;
  public CastExtension(ComponentContainer container) {
   super(container.$form());
   context = (Context) container.$context();
-  castsList = new ArrayList<>();
  }
 
 
