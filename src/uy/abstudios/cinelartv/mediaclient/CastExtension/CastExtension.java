@@ -103,7 +103,7 @@ private JmDNS mDNS;
 
 
      @SimpleFunction(description = "Set Volume")
-    public void SetVolume(float volume) throws IOException {
+    public void SetVolume(int volume) throws IOException {
          chromecast.setVolume(volume);
         }
 
