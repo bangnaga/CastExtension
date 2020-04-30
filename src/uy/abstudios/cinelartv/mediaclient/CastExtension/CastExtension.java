@@ -176,11 +176,11 @@ private JmDNS mDNS;
     
    @SimpleEvent(description="")
     public void OnDeviceDiscovered(String chromecast){
-        EventDispatcher.dispatchEvent(this, "OnDiscoveryFinished". chromecast);
+        EventDispatcher.dispatchEvent(this, "OnDiscoveryFinished", chromecast);
     }
     
     public void appendListener(){
-        ChomeCasts.registerListener(new ChromeCastsListener(){
+        ChromeCasts.registerListener(new ChromeCastsListener(){
             @Override public void newChromeCastDiscovered(ChromeCast chromeCast){
                 OnDeviceDiscovered(chromeCast.toString());
             }
