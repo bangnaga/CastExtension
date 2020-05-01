@@ -62,9 +62,7 @@
       LiveData
       ======================== -->
 
-      <pathelement location="lib/deps/livedata.jar" />
-        <pathelement location="lib/deps/livedata-core.jar" />
-        <pathelement location="lib/deps/lifecycle-common.jar" />
+
       
       
 
