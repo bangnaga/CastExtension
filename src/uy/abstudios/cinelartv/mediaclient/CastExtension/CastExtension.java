@@ -49,7 +49,7 @@ import java.security.GeneralSecurityException;
  nonVisible = true,
  iconName = "https://cdn.iconscout.com/icon/free/png-256/cast-226401.png",
  helpUrl = "https://developers.cinelartv.tk/opensource/cast.html")
-@UsesLibraries(libraries = "api-v2-0.11.2-SNAPSHOT.jar,livedata.jar,lifecycle-common.jar,livedata-core.jar,jackson-core-2.9.10.jar,jmdns-3.5.5.jar,slf4j-api-1.7.30.jar,jackson-annotations-2.9.10.jar,jackson-databind-2.9.10.4.jar,protobuf-java-2.6.0.jar")
+@UsesLibraries(libraries = "api-v2-0.11.2-SNAPSHOT.jar,jackson-core-2.9.10.jar,jmdns-3.5.5.jar,slf4j-api-1.7.30.jar,jackson-annotations-2.9.10.jar,jackson-databind-2.9.10.4.jar,protobuf-java-2.6.0.jar")
 @SimpleObject(external = true)
 @UsesPermissions(permissionNames = "android.permission.INTERNET")
 
