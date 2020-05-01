@@ -18,6 +18,7 @@ import android.app.Activity;
 import android.content.Context;
 import android.os.Handler;
 import android.util.Log;
+import android.arch.lifecycle.MutableLiveData;
 import java.util.List;
 import java.awt.event.*;
 import android.view.Window;
@@ -123,7 +124,6 @@ private boolean hasListener;
 
     @SimpleFunction(description = "Start devices scan")
     public void startDiscovery() {
-
     new StartListening().execute();
     appendListener();
 }
@@ -147,9 +147,8 @@ private boolean hasListener;
     public void RestartDiscovery() {
     try {
         castsList.clear();
-        ChromeCasts.stopDiscovery();
-        new StartListening().execute();
-        appendListener();
+        stopDiscovery();
+        startDiscovery();
     } catch (Exception e) {
         OnError("RestartingDiscoveringDevices", e.toString());
         e.printStackTrace();
@@ -248,7 +247,6 @@ private boolean hasListener;
 private ChromeCastsListener listener = new ChromeCastsListener(){
             @Override public void newChromeCastDiscovered(ChromeCast chromeCast){
                 castsList.add(chromeCast);
-                castsList.add(chromeCast);
                 OnChromeCastDiscovered(chromeCast.getName(), chromeCast.getAddress(), chromeCast.getPort());
             }
             
@@ -263,8 +261,7 @@ class StartListening extends AsyncTask <Void, Void, Void> {
     	@Override protected Void doInBackground(Void... args){
 
 try {
-        ChromeCasts.startDiscovery();
-        
+        ChromeCasts.startDiscovery();      
     } catch (Exception e) {
         OnError("StartingDiscoveryTask", e.toString());
         e.printStackTrace();
