@@ -261,15 +261,15 @@ public void initializeLiveList(){
     
     listen.setValue(nativeList); 
 
-    listen.observe(context, new Observer  <> () {
+    listen.observe(context, new Observer <List<ChromeCast>> () {
       @Override
-        public void onChanged(String changedValue) {
+        public void onChanged(List<ChromeCast> changedValue) {
             if(nativeList.size() > 0){
                 ChromeCast newCast = nativeList.get(nativeList.size() - 1);
                 OnNativeCastDiscovered(chromeCast.getName(), chromeCast.getAddress(), chromeCast.getPort());
         }
     });
-}
+};
 private ChromeCastsListener listener = new ChromeCastsListener(){
             @Override public void newChromeCastDiscovered(ChromeCast chromeCast){
                 castsList.add(chromeCast);
