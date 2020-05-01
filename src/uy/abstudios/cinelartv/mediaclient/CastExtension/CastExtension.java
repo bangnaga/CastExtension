@@ -59,11 +59,12 @@ private List<ChromeCast> castsList;
 private ChromeCast chromecast;
 private Context context;
 private JmDNS mDNS;
-
+private boolean hasListener;
 
  public CastExtension(ComponentContainer container) {
   super(container.$form());
   context = (Context) container.$context();
+  castsList = new ArrayList<>();
  }
 
 
@@ -146,7 +147,8 @@ private JmDNS mDNS;
     public void RestartDiscovery() {
     try {
         castsList.clear();
-        ChromeCasts.restartDiscovery();
+        ChromeCasts.stopDiscovery();
+        new StartListening().execute();
         appendListener();
     } catch (Exception e) {
         OnError("RestartingDiscoveringDevices", e.toString());
@@ -237,8 +239,15 @@ private JmDNS mDNS;
         EventDispatcher.dispatchEvent(this, "OnChromeCastRemoved", deviceName, deviceAddress, devicePort);
     }
     public void appendListener(){
-        ChromeCasts.registerListener(new ChromeCastsListener(){
+        if (!hasListener){
+            ChromeCasts.addListener(listener);
+            hasListener = true;
+        }
+    }
+
+private ChromeCastsListener listener = new ChromeCastsListener(){
             @Override public void newChromeCastDiscovered(ChromeCast chromeCast){
+                castsList.add(chromeCast);
                 castsList.add(chromeCast);
                 OnChromeCastDiscovered(chromeCast.getName(), chromeCast.getAddress(), chromeCast.getPort());
             }
@@ -248,17 +257,13 @@ private JmDNS mDNS;
                     castsList.remove(chromeCast);
                 OnChromeCastRemoved(chromeCast.getName(), chromeCast.getAddress(), chromeCast.getPort());
             }
-        });
-    }
-
-    
+        };    
 class StartListening extends AsyncTask <Void, Void, Void> {
 
     	@Override protected Void doInBackground(Void... args){
 
 try {
         ChromeCasts.startDiscovery();
-        castsList = ChromeCasts.get();
         
     } catch (Exception e) {
         OnError("StartingDiscoveryTask", e.toString());
