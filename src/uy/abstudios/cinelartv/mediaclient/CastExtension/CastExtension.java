@@ -23,6 +23,7 @@ import android.arch.lifecycle.Observer;
 import java.util.List;
 import java.awt.event.*;
 import android.view.Window;
+import android.support.v7.app.AppCompatActivity;
 import java.util.ArrayList;
 import java.util.List;
 import su.litvak.chromecast.api.v2.*;
@@ -67,7 +68,7 @@ private boolean hasListener;
 
  public CastExtension(ComponentContainer container) {
   super(container.$form());
-  context = (Context) container.$context();
+  context = container.$context();
   castsList = new ArrayList<>();
   liveList = new MutableLiveData<>();
   
@@ -261,7 +262,7 @@ public void initializeLiveList(){
     
     liveList.setValue(nativeList); 
 
-    liveList.observe(context, new Observer <List<ChromeCast>> () {
+    liveList.observe((AppCompatActivity)context, new Observer <List<ChromeCast>> () {
       @Override
         public void onChanged(List<ChromeCast> changedValue) {
             if(nativeList.size() > 0){
