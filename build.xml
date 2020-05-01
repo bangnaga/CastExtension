@@ -57,6 +57,13 @@
       ======================== -->
 
       <pathelement location="lib/deps/slf4j-api-1.7.30.jar" />
+        
+        <!-- ================
+      LiveData
+      ======================== -->
+
+      <pathelement location="lib/deps/livedata.jar" />
+        <pathelement location="lib/deps/livedata-core.jar" />
 
       
       
