@@ -142,7 +142,7 @@ private boolean hasListener;
     public void stopDiscovery() {
     try {
     ChromeCasts.stopDiscovery();
-    ChromeCasts.removeListener(listener);
+    ChromeCasts.unregisterListener(listener);
         hasListener = false;
     } catch (Exception e) {
         OnError("StoppingDiscoveringDevices", e.toString());
@@ -233,7 +233,7 @@ private boolean hasListener;
     
    @SimpleEvent
     public void OnError(String process, String message){
-        ChromeCasts.removeListener(listener);
+        ChromeCasts.unregisterListener(listener);
         hasListener = false;
         EventDispatcher.dispatchEvent(this, "OnError", process, message);
     }
@@ -252,20 +252,20 @@ private boolean hasListener;
     public void appendListener(){
         if (!hasListener){
             nativeList = ChromeCasts.get();
-            ChromeCasts.addListener(listener);
+            ChromeCasts.registerListener(listener);
             hasListener = true;
         }
     }
 public void initializeLiveList(){
     liveList = new MutableLiveData<>();
     
-    listen.setValue(nativeList); 
+    liveList.setValue(nativeList); 
 
-    listen.observe(context, new Observer <List<ChromeCast>> () {
+    liveList.observe(context, new Observer <List<ChromeCast>> () {
       @Override
         public void onChanged(List<ChromeCast> changedValue) {
             if(nativeList.size() > 0){
-                ChromeCast newCast = nativeList.get(nativeList.size() - 1);
+                ChromeCast chromeCast = nativeList.get(nativeList.size() - 1);
                 OnNativeCastDiscovered(chromeCast.getName(), chromeCast.getAddress(), chromeCast.getPort());
             }
         }
