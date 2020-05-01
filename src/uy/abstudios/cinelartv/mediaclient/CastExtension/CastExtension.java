@@ -261,7 +261,7 @@ public void initializeLiveList(){
     
     listen.setValue(nativeList); 
 
-    listen.observe(context, new Observer  > () {
+    listen.observe(context, new Observer  <> () {
       @Override
         public void onChanged(String changedValue) {
             if(nativeList.size() > 0){
