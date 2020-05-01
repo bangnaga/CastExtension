@@ -19,6 +19,7 @@ import android.content.Context;
 import android.os.Handler;
 import android.util.Log;
 import android.arch.lifecycle.MutableLiveData;
+import android.arch.lifecycle.Observer;
 import java.util.List;
 import java.awt.event.*;
 import android.view.Window;
@@ -47,7 +48,7 @@ import java.security.GeneralSecurityException;
  nonVisible = true,
  iconName = "https://cdn.iconscout.com/icon/free/png-256/cast-226401.png",
  helpUrl = "https://developers.cinelartv.tk/opensource/cast.html")
-@UsesLibraries(libraries = "api-v2-0.11.2-SNAPSHOT.jar,jackson-core-2.9.10.jar,jmdns-3.5.5.jar,slf4j-api-1.7.30.jar,jackson-annotations-2.9.10.jar,jackson-databind-2.9.10.4.jar,protobuf-java-2.6.0.jar")
+@UsesLibraries(libraries = "api-v2-0.11.2-SNAPSHOT.jar,livedata.jar,jackson-core-2.9.10.jar,jmdns-3.5.5.jar,slf4j-api-1.7.30.jar,jackson-annotations-2.9.10.jar,jackson-databind-2.9.10.4.jar,protobuf-java-2.6.0.jar")
 @SimpleObject(external = true)
 @UsesPermissions(permissionNames = "android.permission.INTERNET")
 
@@ -57,6 +58,8 @@ public final class CastExtension extends AndroidNonvisibleComponent implements C
 private static String APP_ID = "";
 private YailList extras;
 private List<ChromeCast> castsList;
+private List<ChromeCast> nativeList;
+private MutableLiveData<List<ChromeCast>> liveList;
 private ChromeCast chromecast;
 private Context context;
 private JmDNS mDNS;
@@ -66,6 +69,8 @@ private boolean hasListener;
   super(container.$form());
   context = (Context) container.$context();
   castsList = new ArrayList<>();
+  liveList = new MutableLiveData<>();
+  
  }
 
 
@@ -137,6 +142,8 @@ private boolean hasListener;
     public void stopDiscovery() {
     try {
     ChromeCasts.stopDiscovery();
+    ChromeCasts.removeListener(listener);
+        hasListener = false;
     } catch (Exception e) {
         OnError("StoppingDiscoveringDevices", e.toString());
     e.printStackTrace();
@@ -226,24 +233,43 @@ private boolean hasListener;
     
    @SimpleEvent
     public void OnError(String process, String message){
+        ChromeCasts.removeListener(listener);
+        hasListener = false;
         EventDispatcher.dispatchEvent(this, "OnError", process, message);
     }
    @SimpleEvent(description="")
     public void OnChromeCastDiscovered(String deviceName,String deviceAddress, int devicePort){
         EventDispatcher.dispatchEvent(this, "OnChromeCastDiscovered", deviceName, deviceAddress, devicePort);
     }
-   
+   @SimpleEvent(description="")
+    public void OnNativeCastDiscovered(String deviceName,String deviceAddress, int devicePort){
+        EventDispatcher.dispatchEvent(this, "OnNativeCastDiscovered", deviceName, deviceAddress, devicePort);
+    }
     @SimpleEvent(description="Cast removed from ")
     public void OnChromeCastRemoved(String deviceName,String deviceAddress, int devicePort){
         EventDispatcher.dispatchEvent(this, "OnChromeCastRemoved", deviceName, deviceAddress, devicePort);
     }
     public void appendListener(){
         if (!hasListener){
+            nativeList = ChromeCasts.get();
             ChromeCasts.addListener(listener);
             hasListener = true;
         }
     }
+public void initializeLiveList(){
+    liveList = new MutableLiveData<>();
+    
+    listen.setValue(nativeList); 
 
+    listen.observe(context, new Observer  > () {
+      @Override
+        public void onChanged(String changedValue) {
+            if(nativeList.size() > 0){
+                ChromeCast newCast = nativeList.get(nativeList.size() - 1);
+                OnNativeCastDiscovered(chromeCast.getName(), chromeCast.getAddress(), chromeCast.getPort());
+        }
+    });
+}
 private ChromeCastsListener listener = new ChromeCastsListener(){
             @Override public void newChromeCastDiscovered(ChromeCast chromeCast){
                 castsList.add(chromeCast);
@@ -261,7 +287,9 @@ class StartListening extends AsyncTask <Void, Void, Void> {
     	@Override protected Void doInBackground(Void... args){
 
 try {
-        ChromeCasts.startDiscovery();      
+        ChromeCasts.startDiscovery(); 
+        if (liveList == null)
+            initializeLiveList();
     } catch (Exception e) {
         OnError("StartingDiscoveryTask", e.toString());
         e.printStackTrace();
