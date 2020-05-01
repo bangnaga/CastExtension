@@ -267,6 +267,7 @@ public void initializeLiveList(){
             if(nativeList.size() > 0){
                 ChromeCast newCast = nativeList.get(nativeList.size() - 1);
                 OnNativeCastDiscovered(chromeCast.getName(), chromeCast.getAddress(), chromeCast.getPort());
+            }
         }
     });
 };
