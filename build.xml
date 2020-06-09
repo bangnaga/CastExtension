@@ -31,6 +31,8 @@
         <pathelement location="lib/appinventor/AndroidRuntime.jar" />
         <pathelement location="lib/deps/api-v2-0.11.2-SNAPSHOT.jar" />
         <pathelement location="lib/deps/android-support-v4.jar" />
+        <pathelement location="lib/deps/support-compat-28.0.0.jar" />
+        
         
         <pathelement location="lib/appinventor/AnnotationProcessors.jar" />
 
