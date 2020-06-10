@@ -60,7 +60,6 @@ private static String APP_ID = "";
 private YailList extras;
 private List<ChromeCast> castsList;
 private List<ChromeCast> nativeList;
-private MutableLiveData<List<ChromeCast>> liveList;
 private ChromeCast chromecast;
 private Context context;
 private JmDNS mDNS;
@@ -69,9 +68,7 @@ private boolean hasListener;
  public CastExtension(ComponentContainer container) {
   super(container.$form());
   context = container.$context();
-  castsList = new ArrayList<>();
-  liveList = new MutableLiveData<>();
-  
+  castsList = new ArrayList<>();  
  }
 
 
@@ -257,21 +254,7 @@ private boolean hasListener;
             hasListener = true;
         }
     }
-public void initializeLiveList(){
-    liveList = new MutableLiveData<>();
-    
-    liveList.setValue(nativeList); 
 
-    liveList.observe((AppCompatActivity)context, new Observer <List<ChromeCast>> () {
-      @Override
-        public void onChanged(List<ChromeCast> changedValue) {
-            if(nativeList.size() > 0){
-                ChromeCast chromeCast = nativeList.get(nativeList.size() - 1);
-                OnNativeCastDiscovered(chromeCast.getName(), chromeCast.getAddress(), chromeCast.getPort());
-            }
-        }
-    });
-};
 private ChromeCastsListener listener = new ChromeCastsListener(){
             @Override public void newChromeCastDiscovered(ChromeCast chromeCast){
                 castsList.add(chromeCast);
@@ -290,8 +273,6 @@ class StartListening extends AsyncTask <Void, Void, Void> {
 
 try {
         ChromeCasts.startDiscovery(); 
-        if (liveList == null)
-            initializeLiveList();
     } catch (Exception e) {
         OnError("StartingDiscoveryTask", e.toString());
         e.printStackTrace();
