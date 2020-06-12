@@ -168,7 +168,7 @@ public final class CastExtension extends AndroidNonvisibleComponent implements C
 		}
 	}
 	
-	@SimpleFunction
+	@SimpleFunction(description = "")
 	public int DiscoveredDevicesCount() {
 		return castsList.size();
 	}
@@ -189,12 +189,12 @@ public final class CastExtension extends AndroidNonvisibleComponent implements C
 		}
 	}
 	
-	@SimpleFunction
+	@SimpleFunction(description = "")
 	public void SetMedia(String title, String thumbnail, String video) throws IOException {
 		chromecast.load(title, thumbnail, video, null);
 	}
 	
-	@SimpleEvent
+	@SimpleEvent(description = "")
 	public void OnError(String process, String message) {
 		ChromeCasts.unregisterListener(listener);
 		hasListener = false;
@@ -225,12 +225,14 @@ public final class CastExtension extends AndroidNonvisibleComponent implements C
 	}
 
 	private ChromeCastsListener listener = new ChromeCastsListener() {
-		@Override public void newChromeCastDiscovered(ChromeCast chromeCast) {
+		@Override
+		public void newChromeCastDiscovered(ChromeCast chromeCast) {
 			castsList.add(chromeCast);
 			OnChromeCastDiscovered(chromeCast.getName(), chromeCast.getAddress(), chromeCast.getPort());
 		}
 		
-		@Override public void chromeCastRemoved(ChromeCast chromeCast) {
+		@Override
+		public void chromeCastRemoved(ChromeCast chromeCast) {
 			if (castsList.contains(chromeCast)) {
 					castsList.remove(chromeCast);
 			}
