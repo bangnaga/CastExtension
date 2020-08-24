@@ -52,12 +52,14 @@ import java.security.GeneralSecurityException;
 @SimpleObject(external = true)
 @UsesPermissions(permissionNames = "android.permission.INTERNET")
 public final class CastExtension extends AndroidNonvisibleComponent implements Component {
-	private static final Logger logger = LoggerFactory.getLogger(ChromeCastManager.class);
+	private static final Logger logger = LoggerFactory.getLogger(CastExtension.class);
 	private static String APP_ID = "";
 	private YailList extras;
+	private ChromeCast selectedChromecast;
 	private List<ChromeCast> castsList;
 	private List<ChromeCast> nativeList;
 	private ChromeCast chromecast;
+	private ChromeCast selectedChromecast;
 	private Context context;
 	private JmDNS mDNS;
 	private boolean hasListener;
