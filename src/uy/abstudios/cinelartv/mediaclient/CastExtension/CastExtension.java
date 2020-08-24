@@ -149,10 +149,32 @@ public final class CastExtension extends AndroidNonvisibleComponent implements C
 	}
 
 	@SimpleFunction(description = "Start devices scan")
-	public void startDiscovery() {
-		new StartListening().execute();
-		appendListener();
-	}
+	List<ChromeCast> result = new ArrayList<ChromeCast>();
+        StringBuffer output = new StringBuffer();
+        try {
+            ChromeCasts.stopDiscovery();
+            ChromeCasts.startDiscovery();
+            Thread.sleep(20000);
+            for (ChromeCast item: ChromeCasts.get()){
+                if (item.getModel().equals("Chromecast")){
+                    System.out.println("found chromecast: "+item.getTitle()+" running "+item.getAppTitle());
+                    output.append("found chromecast: "+item.getTitle()+" running "+item.getAppTitle());
+                    result.add(item);
+                }
+            }
+        } catch (Exception e){
+            e.printStackTrace();
+        }
+        if (result.size()==0) {
+            output.append("No chromecast found");
+            System.out.println("No chromecast found");
+        }
+
+        return output.toString();
+    }
+}
+
+
 
 	@SimpleFunction(description = "Stop devices scan")
 	public void stopDiscovery() {
