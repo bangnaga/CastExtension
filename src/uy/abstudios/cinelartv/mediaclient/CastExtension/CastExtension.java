@@ -19,13 +19,13 @@ import android.util.Log;
 import android.arch.lifecycle.MutableLiveData;
 import android.arch.lifecycle.Observer;
 import java.util.List;
-import java.awt.event.*;
 import android.view.Window;
 import android.support.v7.app.AppCompatActivity;
 import java.util.ArrayList;
 import java.util.List;
 import su.litvak.chromecast.api.v2.Application;
 import su.litvak.chromecast.api.v2.ChromeCast;
+import su.litvak.chromecast.api.v2.MediaStatus;
 import su.litvak.chromecast.api.v2.ChromeCasts;
 import su.litvak.chromecast.api.v2.ChromeCastsListener;
 import su.litvak.chromecast.api.v2.Status;
@@ -56,8 +56,7 @@ public final class CastExtension extends AndroidNonvisibleComponent implements C
 	private static String APP_ID = "";
 	private YailList extras;
 	private ChromeCast selectedChromecast;
-	private List<ChromeCast> castsList;
-	private List<ChromeCast> nativeList;
+	private List<ChromeCast> chromecasts;
 	private ChromeCast chromecast;
 	private Context context;
 	private JmDNS mDNS;
@@ -137,21 +136,7 @@ public final class CastExtension extends AndroidNonvisibleComponent implements C
 	
 	
 	
-	
-	@SimpleFunction(description = "Set Volume")
-	public void SetVolume(int volume) throws IOException {
-		chromecast.setVolume(volume);
-	}
 
-	@SimpleFunction(description = "")
-	public void Pause() throws IOException {
-		chromecast.pause();
-	}
-
-	@SimpleFunction(description = "")
-	public void Play() throws IOException {
-		chromecast.play();
-	}
 	
 	@SimpleFunction(description = "")
 	public void Seek(int seek) throws IOException {
@@ -261,23 +246,11 @@ public final class CastExtension extends AndroidNonvisibleComponent implements C
 		EventDispatcher.dispatchEvent(this, "OnChromeCastDiscovered", deviceName, deviceAddress, devicePort);
 	}
 
-	@SimpleEvent(description = "")
-	public void OnNativeCastDiscovered(String deviceName,String deviceAddress, int devicePort) {
-		EventDispatcher.dispatchEvent(this, "OnNativeCastDiscovered", deviceName, deviceAddress, devicePort);
-	}
-	
 	@SimpleEvent(description="Cast removed from ")
 	public void OnChromeCastRemoved(String deviceName,String deviceAddress, int devicePort) {
 		EventDispatcher.dispatchEvent(this, "OnChromeCastRemoved", deviceName, deviceAddress, devicePort);
 	}
 	
-	public void appendListener() {
-		if (!hasListener) {
-			nativeList = ChromeCasts.get();
-			ChromeCasts.registerListener(listener);
-			hasListener = true;
-		}
-	}
 
 	private ChromeCastsListener listener = new ChromeCastsListener() {
 		@Override
