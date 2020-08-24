@@ -29,7 +29,8 @@ import su.litvak.chromecast.api.v2.ChromeCast;
 import su.litvak.chromecast.api.v2.ChromeCasts;
 import su.litvak.chromecast.api.v2.ChromeCastsListener;
 import su.litvak.chromecast.api.v2.Status;
-import org.slf4j.*;
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
 import com.fasterxml.jackson.annotation.*;
 import com.fasterxml.jackson.core.*;
 import com.fasterxml.jackson.databind.*;
@@ -51,6 +52,7 @@ import java.security.GeneralSecurityException;
 @SimpleObject(external = true)
 @UsesPermissions(permissionNames = "android.permission.INTERNET")
 public final class CastExtension extends AndroidNonvisibleComponent implements Component {
+	private static final Logger logger = LoggerFactory.getLogger(ChromeCastManager.class);
 	private static String APP_ID = "";
 	private YailList extras;
 	private List<ChromeCast> castsList;
@@ -71,7 +73,7 @@ public final class CastExtension extends AndroidNonvisibleComponent implements C
 	 *   PROPERTIES
 	 * --------------
 	 */
-	@DesignerProperty(editorType = PropertyTypeConstants.PROPERTY_TYPE_STRING, defaultValue = "")
+	@DesignerProperty(editorType = PropertyTypeConstants.PROPERTY_TYPE_STRING, defaultValue = "DEFAULT_MEDIA_RECEIVER_APPLICATION_ID")
 	@SimpleProperty
 	public void AppID(String applicationID) {
 		if(applicationID.equals("DEFAULT_MEDIA_RECEIVER_APPLICATION_ID")) {
@@ -86,6 +88,55 @@ public final class CastExtension extends AndroidNonvisibleComponent implements C
 	 *   FUNCTIONS
 	 * -------------
 	 */
+	
+	
+	@SimpleFunction(description = "Stop playing and close the connection with the Chromecast device")
+	public void Disconnect()
+    {
+        try
+        {
+            logger.info("Unregistering the chromecast listener.");
+            ChromeCasts.unregisterListener(this);
+            logger.info("Unregistering the chromecast listener. [DONE]");
+            
+            logger.info("Stopping chromecast discovery.");
+            ChromeCasts.stopDiscovery();
+            logger.info("Stopping chromecast discovery. [DONE]");
+            
+            if(selectedChromecast != null && selectedChromecast.isConnected())
+            {
+                if(selectedChromecast.isAppRunning(APP_ID))
+                {
+                    logger.info("Stopping chromecast app.");
+                    selectedChromecast.stopApp();                
+                    logger.info("Stopping chromecast app. [DONE]");
+                }
+                if(selectedChromecast.isConnected())
+                {
+//                    try
+//                    {
+//                        logger.info("Disconnecting from chromecast.");
+//                        selectedChromecast.disconnect();                    
+//                        logger.info("Disconnecting from chromecast. [DONE]");
+//                    }
+//                    catch(SocketException e)
+//                    {
+//                        
+//                    }
+                }
+            }
+        }
+        catch(IOException e)
+        {
+            logger.error(e.getMessage());
+        }
+    }
+	
+	
+	
+	
+	
+	
 	@SimpleFunction(description = "Set Volume")
 	public void SetVolume(int volume) throws IOException {
 		chromecast.setVolume(volume);
