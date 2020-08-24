@@ -59,7 +59,6 @@ public final class CastExtension extends AndroidNonvisibleComponent implements C
 	private List<ChromeCast> castsList;
 	private List<ChromeCast> nativeList;
 	private ChromeCast chromecast;
-	private ChromeCast selectedChromecast;
 	private Context context;
 	private JmDNS mDNS;
 	private boolean hasListener;
