@@ -51,7 +51,7 @@ import java.security.GeneralSecurityException;
 @UsesLibraries(libraries = "api-v2-0.11.2-SNAPSHOT.jar, jackson-core-2.9.10.jar, jmdns-3.5.5.jar, slf4j-api-1.7.30.jar, jackson-annotations-2.9.10.jar ,jackson-databind-2.9.10.4.jar, protobuf-java-2.6.0.jar, android-support-v4.jar, support-compat-28.0.0.jar")
 @SimpleObject(external = true)
 @UsesPermissions(permissionNames = "android.permission.INTERNET")
-public final class CastExtension extends AndroidNonvisibleComponent implements Component {
+public final class CastExtension extends AndroidNonvisibleComponent implements Component, ChromeCastsListener {
 	private static final Logger logger = LoggerFactory.getLogger(CastExtension.class);
 	private static String APP_ID = "";
 	private YailList extras;
