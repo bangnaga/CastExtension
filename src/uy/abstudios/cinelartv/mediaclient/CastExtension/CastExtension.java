@@ -143,36 +143,11 @@ public final class CastExtension extends AndroidNonvisibleComponent implements C
 		chromecast.seek(seek);
 	}
 	
-	@SimpleFunction(description = "")
-	public void SetMuted(boolean mute) throws IOException {
-		chromecast.setMuted(mute);
-	}
+
 
 	@SimpleFunction(description = "Start devices scan")
-	List<ChromeCast> result = new ArrayList<ChromeCast>();
-        StringBuffer output = new StringBuffer();
-        try {
-            ChromeCasts.stopDiscovery();
-            ChromeCasts.startDiscovery();
-            Thread.sleep(20000);
-            for (ChromeCast item: ChromeCasts.get()){
-                if (item.getModel().equals("Chromecast")){
-                    System.out.println("found chromecast: "+item.getTitle()+" running "+item.getAppTitle());
-                    output.append("found chromecast: "+item.getTitle()+" running "+item.getAppTitle());
-                    result.add(item);
-                }
-            }
-        } catch (Exception e){
-            e.printStackTrace();
-        }
-        if (result.size()==0) {
-            output.append("No chromecast found");
-            System.out.println("No chromecast found");
-        }
-
-        return output.toString();
-    }
-}
+	public void StartDiscovery() {
+	}
 
 
 
@@ -256,19 +231,19 @@ public final class CastExtension extends AndroidNonvisibleComponent implements C
 		chromecast.load(title, thumbnail, video, null);
 	}
 	
-	@SimpleEvent(description = "")
+	@SimpleEvent(description = "Triggered event when an error occurs")
 	public void OnError(String process, String message) {
 		ChromeCasts.unregisterListener(listener);
 		hasListener = false;
 		EventDispatcher.dispatchEvent(this, "OnError", process, message);
 	}
 
-	@SimpleEvent(description = "")
+	@SimpleEvent(description = "Triggered event when a Chromecast device is Discovered")
 	public void OnChromeCastDiscovered(String deviceName,String deviceAddress, int devicePort) {
 		EventDispatcher.dispatchEvent(this, "OnChromeCastDiscovered", deviceName, deviceAddress, devicePort);
 	}
 
-	@SimpleEvent(description="Cast removed from ")
+	@SimpleEvent(description="Triggered event when a Chromecast is removed")
 	public void OnChromeCastRemoved(String deviceName,String deviceAddress, int devicePort) {
 		EventDispatcher.dispatchEvent(this, "OnChromeCastRemoved", deviceName, deviceAddress, devicePort);
 	}
